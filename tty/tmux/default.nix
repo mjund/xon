@@ -106,7 +106,7 @@ in
       vim-tmux-navigator
       yank
     ];
-    prefix = "C-Space";
+    prefix = "M-Space";
     baseIndex = 1;
     escapeTime = 0;
     keyMode = "vi";

@@ -8,7 +8,7 @@ let
   nur-no-pkgs = import (builtins.fetchTarball {
     
   url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-  sha256 = "1rvhvfwxidbhby302aam8h30gfb31qzrr8ffvhwl665n3zxk3fzq";
+  # sha256 = "1rvhvfwxidbhby302aam8h30gfb31qzrr8ffvhwl665n3zxk3fzq";
 
   }) { inherit pkgs; };
 
@@ -22,6 +22,8 @@ let
   extensions = with addons;[
 
     surfingkeys
+
+    onetab
     
 
     

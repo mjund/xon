@@ -19,7 +19,7 @@ let
     "gr" = "git reset --soft HEAD~1";
     "f" = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
     # "rm" = "gio trash";
-    "upx" = "nixos-rebuild switch --flake /home/mon/xon#gix";
+    "unx" = "nixos-rebuild switch --flake /home/mon/xon#gix";
   };
   vault = {
     "vault" = "ga . && gc -m 'sync $(date '+%Y-%m-%d %H:%M')' && git push";
