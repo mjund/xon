@@ -14,8 +14,16 @@
   xdg-utils
   # handlr
 
-
+  gnome.nautilus
+  gnome.sushi
     
   ]; 
+
+  services = {
+    gvfs = {
+      enable = true;
+      package = pkgs.gnome.gvfs;
+    };
+  };
 
 }

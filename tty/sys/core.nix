@@ -49,6 +49,8 @@
     nil
     keyd
     wl-clipboard
+    duf
+    tldr
     
   ]; 
 
