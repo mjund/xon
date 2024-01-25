@@ -5,10 +5,10 @@ return {
 		["Charmful Dark"] = require("charmful"),
 	},
 	color_scheme = "Charmful Dark",
-	font = require("wezterm").font("CaskaydiaCove NF"),
+	-- font = require("wezterm").font("IosevkaTerm"),
 	default_cursor_style = "BlinkingBar",
 
-	default_prog = { "tmux" },
+	-- default_prog = { "tmux" },
 	window_close_confirmation = "NeverPrompt",
 	hide_tab_bar_if_only_one_tab = true,
 

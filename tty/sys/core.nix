@@ -50,6 +50,8 @@
     keyd
     wl-clipboard
     duf
+    fx
+    glow
     tldr
     
   ]; 

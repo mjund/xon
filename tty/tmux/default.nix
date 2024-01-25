@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   bg = "default";
   fg = "default";
@@ -100,13 +100,25 @@ let
   };
 in
 { 
+
+  home.packages = with pkgs; [ tmuxifier ];
+
   programs.tmux = {
     enable = true;
     plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
+      # vim-tmux-navigator
       yank
+      tilish
+
+      {
+        plugin = inputs.tmux-sessionx.packages.${pkgs.system}.default;
+        extraConfig = ''
+        set -g @sessionx-zoxide-mode 'on'
+        set -g @sessionx-bind 'o'
+        '';
+      }
     ];
-    prefix = "M-Space";
+    prefix = "C-Space";
     baseIndex = 1;
     escapeTime = 0;
     keyMode = "vi";

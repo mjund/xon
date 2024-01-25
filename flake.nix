@@ -13,12 +13,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
+    wezterm.url = "github:wez/wezterm?dir=nix";
+
     nur.url = github:nix-community/NUR;
 
     home-manager = {
       url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # tmux 
+
+    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
 
     #sxm-flake = {
     #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
@@ -73,7 +80,16 @@
     hyprland.url = "github:hyprwm/hyprland";
     hycov = {
       url = "github:DreamMaoMao/hycov";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
+    };
+    # virtual-desktops = {
+    #   url = "git+file:///home/mon/hub/hyprland-virtual-desktops";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    hyprfocus = {
+      url = "github:VortexCoyote/hyprfocus";
+      # important!
+      inputs.hyprland.follows = "hyprland";
     };
 
     
