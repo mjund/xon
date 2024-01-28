@@ -61,6 +61,7 @@
       }}'';
 
       q = "quit";
+
     };
 
     keybindings = {
@@ -73,6 +74,8 @@
       "<enter>" = "open";
       V = "pager";
       f = "fzf";
+      Q  = "push '-q";
+
     };
 
     settings = {
@@ -89,6 +92,7 @@
     };
 
     extraConfig = ''
+      push m-
       $mkdir -p ~/.trash
 
       &${pkgs.ctpv}/bin/ctpv -s $id

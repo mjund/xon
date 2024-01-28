@@ -8,7 +8,7 @@ let
   nur-no-pkgs = import (builtins.fetchTarball {
     
   url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-  # sha256 = "1rvhvfwxidbhby302aam8h30gfb31qzrr8ffvhwl665n3zxk3fzq";
+  sha256 = "sha256:01qkhk3abc6wbljh5bdgfs6bh8bdy92k9j4njxpi09m4vycpplsl";
 
   }) { inherit pkgs; };
 
@@ -204,6 +204,23 @@ let
     "toolkit.telemetry.shutdownPingSender.enabledFirstsession" = false;
     "browser.vpn_promo.enabled" = false;
   } // settings;
+    ExtensionSettings = with builtins;
+        let extension = shortId: uuid: {
+          name = uuid;
+          value = {
+            install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
+            installation_mode = "normal_installed";
+          };
+        };
+        in listToAttrs [
+          (extension "tree-style-tab" "treestyletab@piro.sakura.ne.jp")
+          (extension "ublock-origin" "uBlock0@raymondhill.net")
+          (extension "bitwarden-password-manager" "{446900e4-71c2-419f-a6a7-df9c091e268b}")
+          (extension "tabliss" "extension@tabliss.io")
+          (extension "umatrix" "uMatrix@raymondhill.net")
+          (extension "libredirect" "7esoorv3@alefvanoon.anonaddy.me")
+          (extension "clearurls" "{74145f27-f039-47ce-a470-a662b129930a}")
+        ];
 in
 {
   programs.firefox = {
@@ -211,10 +228,17 @@ in
 
     package = pkgs.firefox-beta-bin;
 
+    policies = {
+      inherit ExtensionSettings;
+    };
+
     profiles = {
       default = {
         id = 0;
-        inherit extensions settings userChrome;
+        inherit extensions settings;
+        userChrome = lib.readFile "${penguin-fox}/files/chrome/userChrome.css";
+        userContent = lib.readFile "${penguin-fox}/files/chrome/userContent.css";
+
       };
 
       chatroulette = {

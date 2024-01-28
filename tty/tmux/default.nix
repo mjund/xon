@@ -110,13 +110,13 @@ in
       yank
       tilish
 
-      {
-        plugin = inputs.tmux-sessionx.packages.${pkgs.system}.default;
-        extraConfig = ''
-        set -g @sessionx-zoxide-mode 'on'
-        set -g @sessionx-bind 'o'
-        '';
-      }
+      # {
+      #   plugin = inputs.tmux-sessionx.packages.${pkgs.system}.default;
+      #   extraConfig = ''
+      #   set -g @sessionx-zoxide-mode 'on'
+      #   set -g @sessionx-bind 'o'
+      #   '';
+      # }
     ];
     prefix = "C-Space";
     baseIndex = 1;

@@ -11,13 +11,14 @@ return {
 	-- default_prog = { "tmux" },
 	window_close_confirmation = "NeverPrompt",
 	hide_tab_bar_if_only_one_tab = true,
+	hide_mouse_cursor_when_typing = false,
 
-	window_padding = {
-		top = "1cell",
-		right = "3cell",
-		bottom = "1cell",
-		left = "3cell",
-	},
+	-- window_padding = {
+	-- 	top = "0cell",
+	-- 	right = "3cell",
+	-- 	bottom = "1cell",
+	-- 	left = "3cell",
+	-- },
 
 	inactive_pane_hsb = {
 		saturation = 0.9,

@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     rm-improved
     fd
+    cliphist
   ];
 
   programs = {

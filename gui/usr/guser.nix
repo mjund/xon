@@ -14,7 +14,7 @@
       ../utils
       ../browser/firefox.nix
       ../rofi
-      # ../anyrun
+      ../anyrun
       # ../fonts.nix
     ];
   

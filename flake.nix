@@ -6,20 +6,44 @@
 
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    nixpkgs-nautilus-gtk3.url = github:NixOS/nixpkgs?ref=37bd398;
+
+    hyprland.url = "github:hyprwm/hyprland";
+
+    # virtual-desktops = {
+    #   url = "git+file:///home/mon/hub/hyprland-virtual-desktops";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    
+    hycov = {
+      url = "github:DreamMaoMao/hycov";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprfocus = {
+      url = "github:VortexCoyote/hyprfocus";
+            inputs.hyprland.follows = "hyprland";
+    };
+
+    # nixpkgs-nautilus-gtk3.url = github:NixOS/nixpkgs?ref=37bd398;
+
+
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     rycee-nurpkgs = {
-      url = gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons;
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
 
     wezterm.url = "github:wez/wezterm?dir=nix";
 
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
 
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,69 +51,49 @@
 
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
 
-    #sxm-flake = {
-    #url = git+file:///home/gvolpe/workspace/sxm/sxm-flake;
-    #};
+    # neovim-flake = {
+    #   #url = git+file:///home/gvolpe/workspace/neovim-flake;
+    #   url = github:gvolpe/neovim-flake;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    neovim-flake = {
-      #url = git+file:///home/gvolpe/workspace/neovim-flake;
-      url = github:gvolpe/neovim-flake;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # # Fish shell
 
-    # Fish shell
+    # fish-bobthefish-theme = {
+    #   url = github:gvolpe/theme-bobthefish;
+    #   flake = false;
+    # };
 
-    fish-bobthefish-theme = {
-      url = github:gvolpe/theme-bobthefish;
-      flake = false;
-    };
+    # fish-keytool-completions = {
+    #   url = github:ckipp01/keytool-fish-completions;
+    #   flake = false;
+    # };
 
-    fish-keytool-completions = {
-      url = github:ckipp01/keytool-fish-completions;
-      flake = false;
-    };
+    # # Github Markdown ToC generator
 
-    # Github Markdown ToC generator
-
-    gh-md-toc = {
-      url = github:ekalinin/github-markdown-toc;
-      flake = false;
-    };
+    # gh-md-toc = {
+    #   url = github:ekalinin/github-markdown-toc;
+    #   flake = false;
+    # };
 
     # Nix linter
 
-    statix = {
-      url = github:nerdypepper/statix;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # statix = {
+    #   url = github:nerdypepper/statix;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Miscelaneous
 
-    cowsay = {
-      url = github:snowfallorg/cowsay;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # cowsay = {
+    #   url = github:snowfallorg/cowsay;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # Firefox style
     penguin-fox = {
-      url = github:p3nguin-kun/penguinFox;
+      url = "github:p3nguin-kun/penguinFox";
       flake = false;
-    };
-
-
-    hyprland.url = "github:hyprwm/hyprland";
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      inputs.hyprland.follows = "hyprland";
-    };
-    # virtual-desktops = {
-    #   url = "git+file:///home/mon/hub/hyprland-virtual-desktops";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-    hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
-      # important!
-      inputs.hyprland.follows = "hyprland";
     };
 
     
@@ -122,8 +126,5 @@
       {
         nixosConfigurations = 
           import  ./systems.nix { inherit inputs system pkgs extraArgs specialArgs; };
-
-        
-        
       };
 }

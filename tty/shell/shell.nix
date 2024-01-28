@@ -32,6 +32,37 @@ in
   programs = {
     thefuck.enable = true;
 
+    fish = {
+      enable = true;
+      shellAliases = aliases // vault;
+      functions = {
+        fish_user_key_bindings = ''
+
+                function fish_user_key_bindings
+                    fish_vi_key_bindings
+            
+                    bind \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
+                    bind -s j up-or-search
+                    bind -s k down-or-search
+                    bind -s -M visual j up-line
+                    bind -s -M visual k down-line
+            
+                    bind -s '.' repeat-jump
+                end
+                '';
+        lfcd = ''
+
+function lfcd --wraps="lf" --description="lf - Terminal file manager (changing directory on exit)"
+    # `command` is needed in case `lfcd` is aliased to `lf`.
+    # Quotes will cause `cd` to not change directory if `lf` prints nothing to stdout due to an error.
+    cd "$(command lf -print-last-dir $argv)"
+end
+'';
+
+      };
+      
+    };
+
     
     zsh = {
     enable = true;
@@ -64,6 +95,7 @@ in
       enable = true;
       shellAliases = aliases // vault_nu;
       environmentVariables = {
+        EDITOR = "hx";
         PROMPT_INDICATOR_VI_INSERT = "\"  \"";
         PROMPT_INDICATOR_VI_NORMAL = "\"∙ \"";
         PROMPT_COMMAND = ''""'';
