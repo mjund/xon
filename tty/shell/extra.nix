@@ -1,0 +1,4 @@
+{ ... }: {
+  porgrams.zsh.initExtra = ''
+  '';
+}

@@ -9,12 +9,12 @@
     [
       ../hyprland
       ../editors/vscode.nix
-      ../terminals/wezterm.nix
+      # ../terminals/wezterm.nix
       ../terminals/alacritty.nix
       ../utils
       ../browser/firefox.nix
       ../rofi
-      ../anyrun
+      # ../anyrun
       # ../fonts.nix
     ];
   

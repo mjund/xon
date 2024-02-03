@@ -30,8 +30,8 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./fonts/fonts.nix
-        ./gui/sys/gcore.nix
         ./tty/sys/core.nix
+        ./gui/sys/gcore.nix
         ./gui/srvcs/greetd.nix
         ./tty/srvcs
         ./hardware.nix

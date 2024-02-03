@@ -8,7 +8,6 @@ let
   nur-no-pkgs = import (builtins.fetchTarball {
     
   url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-  sha256 = "sha256:01qkhk3abc6wbljh5bdgfs6bh8bdy92k9j4njxpi09m4vycpplsl";
 
   }) { inherit pkgs; };
 
