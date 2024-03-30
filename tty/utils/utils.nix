@@ -1,12 +1,19 @@
-{pkgs, ...}: {
+{ inputs, pkgs, ...}: {
 
   home.packages = with pkgs; [
+    inputs.devenv.packages."${pkgs.system}".devenv
     rm-improved
     fd
     cliphist
+    powertop
   ];
 
   programs = {
+
+  direnv = {
+  enable = true;
+  nix-direnv.enable = true;
+  };
 
  # fd.enable = true;
   bat.enable = true;

@@ -101,7 +101,6 @@ let
 in
 { 
 
-  home.packages = with pkgs; [ tmuxifier ];
 
   programs.tmux = {
     enable = true;

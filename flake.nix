@@ -7,6 +7,8 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
 
+    devenv.url = "github:cachix/devenv/latest";
+
     hyprland.url = "github:hyprwm/hyprland";
 
     # virtual-desktops = {
