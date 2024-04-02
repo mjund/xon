@@ -34,6 +34,7 @@ in
         ./gui/sys/gcore.nix
         ./gui/srvcs/greetd.nix
         ./tty/srvcs
+        ./tty/srvcs/vpns.nix
         ./hardware.nix
       ] ++ giuModule ++ tiuModule;
     };
