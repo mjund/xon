@@ -2,11 +2,11 @@
   pkgs,
   ...
 }: {
-  # programs.gh = {
-  #   enable = true;
-  #   enableGitCredentialHelper = true;
-  #   settings.git_protocol = "ssh";
-  # };
+  programs.gh = {
+    enable = true;
+    gitCredentialHelper.enable = true;
+    settings.git_protocol = "ssh";
+  };
 
   # Additional git packages
   home.packages = with pkgs.gitAndTools; [ git-absorb git-revise ];
