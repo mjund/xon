@@ -27,7 +27,7 @@
   programs.git = {
     enable = true;
 
-    userName = "xon";
+    userName = "mjund";
     userEmail = "almvns10@gmail.com";
 
     delta = {
@@ -52,7 +52,8 @@
         # pager = diff-so-fancy | less --tabs=4 -RFX
       };
       credential = {
-        helper = "cache --timeout=3600";
+        helper = "store";
+        github.user = "mjund";
       };
       commit = {
         # Show my changes when writing the message

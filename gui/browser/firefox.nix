@@ -20,30 +20,30 @@ let
 
   extensions = with addons;[
 
-    surfingkeys
+  # crypto
+  metamask
 
-    onetab
-    
 
-    
+  # util
+  tab-stash
 
-    darkreader
+   surfingkeys
+   onetab
+   darkreader
+   bitwarden
+   ff2mpv
 
-    bitwarden
-    ff2mpv
 
-    
-    # auto-accepts cookies, use only with privacy-badger & ublock-origin
-    i-dont-care-about-cookies
-    languagetool
-    link-cleaner
-    privacy-badger
-    to-deepl
-    ublock-origin
-    unpaywall
+   # auto-accepts cookies, use only with privacy-badger & ublock-origin
+   i-dont-care-about-cookies
+   languagetool
+   link-cleaner
+   privacy-badger
+   ublock-origin
+   unpaywall
 
-    # ];
-  ] ++ (with customAddons; [ chatgpt ]);
+   # ];
+  ] ++ (with customAddons; [ chatgpt https]);
 
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
@@ -89,7 +89,7 @@ let
     "browser.search.widget.inNavBar" = true;
 
     "browser.shell.checkDefaultBrowser" = false;
-    "browser.startup.homepage" = "https://nixos.org";
+    "browser.startup.homepage" = "https://hn.algolia.com";
     "browser.tabs.loadInBackground" = true;
     "browser.urlbar.placeholderName" = "DuckDuckGo";
     "browser.urlbar.showSearchSuggestionsFirst" = false;
