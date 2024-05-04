@@ -1,5 +1,6 @@
 {
   imports = [
+    ./virts.nix
     ./keyd
   ];
 }
