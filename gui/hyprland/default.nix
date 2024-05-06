@@ -8,30 +8,27 @@
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
-      inputs.hycov.packages.${pkgs.system}.hycov
-      # inputs.virtual-desktops.packages.${pkgs.system}.default
-      # inputs.hyprfocus.packages.${pkgs.system}.default
+      # inputs.hyprland-virtual-desktops.packages.${pkgs.system}.virtual-desktops
+      # inputs.hycov.packages.${pkgs.system}.hycov
     ];
     extraConfig = builtins.readFile ./hyprland.conf +
 
      ''
-    # hycov config
+    # virtual desktop
+                # stickyrule = class:^(kittysticky)$,3
+                # stickyrule = title:thunderbird,mail
 
-     plugin {
-         hycov {
-           overview_gappo = 60 #gaps width from screen
-           overview_gappi = 24 #gaps width from clients
-     	    hotarea_size = 10 #hotarea size in bottom left,10x10
-     	    enable_hotarea = 1 # enable mouse cursor hotarea
-         }
-     }
-
-     bind=ALT,tab,hycov:toggleoverview
-     bind=ALT,left,hycov:movefocus,l
-     bind=ALT,right,hycov:movefocus,r
-     bind=ALT,up,hycov:movefocus,u
-     bind=ALT,down,hycov:movefocus,d
+                # plugin {
+                #     virtual-desktops {
+                #         names = 1:coding, 2:internet, 3:mail and chats 
+                #         cycleworkspaces = 1
+                #         rememberlayout = size
+                #         notifyinit = 0
+                #         verbose_logging = 0
+                #         }
+                #       }
 
 
     '';

@@ -9,12 +9,15 @@
 
     devenv.url = "github:cachix/devenv/latest";
 
-    hyprland.url = "github:hyprwm/hyprland";
-
-    # virtual-desktops = {
-    #   url = "git+file:///home/mon/hub/hyprland-virtual-desktops";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      follows = "hyprland-virtual-desktops/hyprland"; # To make sure we run the same version of hyprland that the plugin was built against
+    };
+    hyprland-virtual-desktops = {
+      url = "github:levnikmyskin/hyprland-virtual-desktops";
+      # inputs.hyprland.follows = "hyprland";
+      };
+    
     
     hycov = {
       url = "github:DreamMaoMao/hycov";

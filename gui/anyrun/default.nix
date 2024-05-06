@@ -18,8 +18,8 @@ programs.anyrun = {
         randr
         rink
         shell
-        symbols
         translate
+        websearch
       ];
 
       width.fraction = 0.3;
@@ -27,6 +27,23 @@ programs.anyrun = {
       hidePluginInfo = true;
       closeOnClick = true;
     };
+
+    
+    extraConfigFiles."websearch.ron".text = ''
+    Config(
+   prefix: "#",
+   engines: [DuckDuckGo, Google, Custom(
+     name: "Sourcegrpah",
+     url: "sourcegraph.com/search?q={}",
+     ), Custom(
+     name: "Nixos Packages",
+     url: "search.nixos.org/packages?query={}"
+     ), Custom(
+     name: "Nixos Options",
+     url: "search.nixos.org/options?query={}"
+     )]
+ )
+    '';
 
     # custom css for anyrun, based on catppuccin-mocha
     extraCss = ''
