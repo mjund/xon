@@ -1,7 +1,13 @@
-{pkgs,...}: {
+{pkgs,...}: 
+
+let 
+  kitab-font = pkgs.callPackage ./kitab-font { inherit pkgs; };
+in
+{
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
+    kitab-font
     ubuntu_font_family
     vazir-fonts
     monaspace
