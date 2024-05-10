@@ -1,7 +1,7 @@
 {pkgs,...}: 
 
 let 
-  kitab-font = pkgs.callPackage ./kitab-font { inherit pkgs; };
+  kitab-font = pkgs.callPackage ./kitab-fonts { inherit pkgs; };
 in
 {
   fonts = {
