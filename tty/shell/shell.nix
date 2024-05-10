@@ -2,6 +2,7 @@
 let
 
   aliases = {
+    "pkg" = "nix-shell -p ";
     "db" = "distrobox";
     "arch" = "distrobox-enter Arch -- zsh";
     "fedora" = "distrobox-enter Fedora -- zsh";

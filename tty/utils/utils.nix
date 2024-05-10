@@ -2,10 +2,12 @@
 
   home.packages = with pkgs; [
     inputs.devenv.packages."${pkgs.system}".devenv
+    rclone
     rm-improved
     fd
     cliphist
     powertop
+
   ];
 
   programs = {

@@ -5,6 +5,11 @@
   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  
+ environment.variables = {
+  
+};
+
 
   environment.systemPackages = with pkgs; [
 

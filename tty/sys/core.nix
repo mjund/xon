@@ -14,6 +14,20 @@
   };
 
 
+  # hardware
+
+  hardware = {
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
+
   networking = { 
     hostName = "hix";
     networkmanager.enable = true;
@@ -24,6 +38,9 @@
   users.users.mon.extraGroups = ["wheel" "networkmanager" "keyd"];
   
 
+ environment.variables = {
+  
+};
 
   security = {
     sudo.enable = false;
@@ -41,6 +58,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+
     tmux
     helix
     git

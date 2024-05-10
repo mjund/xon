@@ -1,6 +1,20 @@
 {pkgs,...}: {
-  fonts.packages = with pkgs; [
-  (nerdfonts.override {fonts = ["IosevkaTerm" "FiraCode" "DroidSansMono" ];})
-  (iosevka-bin.override {variant = "slab";})
-];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+    ubuntu_font_family
+    vazir-fonts
+    monaspace
+    (nerdfonts.override {fonts = ["IosevkaTerm" "FiraCode" "DroidSansMono" ];})
+    (iosevka-bin.override {variant = "slab";})
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Vazirmatn" "Ubuntu" ];
+        sansSerif = [ "Vazirmatn" "Ubuntu "];
+        monospace = [ "Monaspace Krypton"];
+      };
+    };
+  };
 }
