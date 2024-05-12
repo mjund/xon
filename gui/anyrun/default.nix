@@ -32,7 +32,10 @@ programs.anyrun = {
     extraConfigFiles."websearch.ron".text = ''
     Config(
    prefix: "#",
-   engines: [DuckDuckGo, Google, Custom(
+   engines: [  Custom(
+     name: "SearXNG",
+     url: "sear.hu/?q={}",
+     ) ,Custom(
      name: "Sourcegrpah",
      url: "sourcegraph.com/search?q={}",
      ), Custom(

@@ -2,6 +2,7 @@
 let
 
   aliases = {
+    "rebuild" = "doas nixos-rebuild switch --flake ~/xon/.#gix --impure";
     "pkg" = "nix-shell -p ";
     "db" = "distrobox";
     "arch" = "distrobox-enter Arch -- zsh";
