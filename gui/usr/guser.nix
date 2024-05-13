@@ -12,7 +12,8 @@
       ../terminals/wezterm.nix
       ../terminals/alacritty.nix
       ../utils
-      ../browser/firefox.nix
+      # ../browser/firefox.nix
+      ../browser/schizofox
       ../browser/chrome.nix
       ../rofi
       ../anyrun

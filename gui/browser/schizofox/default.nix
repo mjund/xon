@@ -10,7 +10,7 @@ programs.schizofox = {
       foreground = "cdd6f4";
     };
 
-    font = "Lexend";
+    font = "Monaspace Krypton";
 
     extraUserChrome = ''
       body {
@@ -20,19 +20,18 @@ programs.schizofox = {
   };
 
   search = {
-    defaultSearchEngine = "Brave";
-    removeEngines = ["Google" "Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia"];
-    searxUrl = "https://searx.be";
-    searxQuery = "https://searx.be/search?q={searchTerms}&categories=general";
-    addEngines = [
-      {
-        Name = "Etherscan";
-        Description = "Checking balances";
-        Alias = "!eth";
-        Method = "GET";
-        URLTemplate = "https://etherscan.io/search?f=0&q={searchTerms}";
-      }
-    ];
+    defaultSearchEngine = "Searxng";
+    removeEngines = ["Google" "Brave" "Bing" "Amazon.com" "eBay" "Wikipedia"];
+    searxRandomizer.enable = true;
+    # addEngines = [
+    #   {
+    #     Name = "Etherscan";
+    #     Description = "Checking balances";
+    #     Alias = "!eth";
+    #     Method = "GET";
+    #     URLTemplate = "https://etherscan.io/search?f=0&q={searchTerms}";
+    #   }
+    # ];
   };
 
   security = {
@@ -44,17 +43,23 @@ programs.schizofox = {
   misc = {
     drmFix = true;
     disableWebgl = false;
-    startPageURL = "file://${builtins.readFile ./startpage.html}";
+    # firefoxSync = true;
+    startPageURL = "https://hn.algolia.com";
   };
 
   extensions = {
     simplefox.enable = true;
     darkreader.enable = true;
 
-    extraExtensions = {
-      "webextension@metamask.io".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ether-metamask/latest.xpi";
-    };
-  };
+    extraExtensions = let
+      mkUrl = name: "https://addons.mozilla.org/firefox/downloads/latest/${name}/latest.xpi";
+      extensions = [
+        
+      ];
+      extraExtensions = builtins.foldl' (acc: ext: acc // {ext.id = {install_url = mkUrl ext.name;};}) {} extensions;
+    in
+      extraExtensions;
+      };
 
   bookmarks = [
     {

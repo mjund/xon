@@ -59,6 +59,7 @@
 
   environment.systemPackages = with pkgs; [
 
+    unzip
     tmux
     helix
     git

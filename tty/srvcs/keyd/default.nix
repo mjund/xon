@@ -30,6 +30,10 @@
       source = ./default.conf; 
     };
 
+    "keyd/secKeyboard.conf" = {
+      source = ./app2.conf;
+    };
+
 
   };
 
