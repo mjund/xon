@@ -23,6 +23,10 @@ let
     # "rm" = "gio trash";
     "unx" = "nixos-rebuild switch --flake /home/mon/xon#gix";
   };
+
+  variables = {
+    EDITOR = "hx";
+  };
   vault = {
     "vault" = "ga . && gc -m 'sync $(date '+%Y-%m-%d %H:%M')' && git push";
   };
@@ -31,6 +35,10 @@ let
   };
 in
 { 
+
+
+  home.sessionVariables = variables;
+
   programs = {
     thefuck.enable = true;
 
