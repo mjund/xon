@@ -7,6 +7,7 @@
 
   imports = 
     [
+      ../tmux/tmuxifier.nix
       ../tmux
       ../shell
       ../utils
