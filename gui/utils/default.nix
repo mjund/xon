@@ -3,7 +3,7 @@
    
   home.packages = with pkgs; [
     grimblast
-    floorp
+    # floorp
     telegram-desktop
   ];
 }
