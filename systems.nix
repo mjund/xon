@@ -25,6 +25,18 @@ let
 
 in
   {
+
+    morphero = nixosSystem {
+      inherit lib pkgs system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./huawei.nix
+        ./tty/srvcs
+        ./tty/core.nix
+        
+      ] ++ tiuModule;
+    };
+
     gix = nixosSystem {
       inherit lib pkgs system;
       specialArgs = { inherit inputs; };

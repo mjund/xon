@@ -64,8 +64,6 @@ environment.sessionVariables = {
   environment.systemPackages = with pkgs; [
 
     unzip
-    tmux
-    helix
     git
     nil
     keyd
