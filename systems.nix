@@ -32,9 +32,12 @@ in
       modules = [
         ./huawei.nix
         ./tty/srvcs
-        ./tty/core.nix
+        ./tty/sys/core.nix
+        ./gui/sys/gcore.nix
+        ./gui/srvcs/greetd.nix
+        ./fonts/fonts.nix
         
-      ] ++ tiuModule;
+      ] ++ tiuModule ++ giuModule;
     };
 
     gix = nixosSystem {

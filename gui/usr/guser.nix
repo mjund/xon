@@ -10,7 +10,7 @@
       ../hyprland
       ../editors/vscode.nix
       ../terminals/wezterm.nix
-      ../terminals/alacritty.nix
+      # ../terminals/alacritty.nix
       ../utils
       # ../browser/firefox.nix
       ../browser/schizofox
