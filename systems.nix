@@ -1,4 +1,4 @@
-{ inputs, system , pkgs,  ...}: 
+{ morphero, gix, inputs, system , pkgs,  ...}: 
 
 with inputs;
 
@@ -23,10 +23,13 @@ let
     })
   ];
 
+      inherit morphero gix;
+
 in
   {
 
     morphero = nixosSystem {
+      # systemName = "morphero";
       inherit lib pkgs system;
       specialArgs = { inherit inputs; };
       modules = [
@@ -36,11 +39,14 @@ in
         ./gui/sys/gcore.nix
         ./gui/srvcs/greetd.nix
         ./fonts/fonts.nix
+        ./gui/hyprland/morhpero.nix
         
       ] ++ tiuModule ++ giuModule;
     };
 
     gix = nixosSystem {
+      # morphero = false;
+      # systemName = "gix";
       inherit lib pkgs system;
       specialArgs = { inherit inputs; };
       modules = [
@@ -51,6 +57,7 @@ in
         ./tty/srvcs
         ./tty/srvcs/vpns.nix
         ./hardware.nix
+        ./gui/hyprland/morhpero.nix
       ] ++ giuModule ++ tiuModule;
     };
 

@@ -1,7 +1,8 @@
-{ lib, config, inputs, pkgs, specialArgs,... }: 
+{ config, morphero, gix,... }: 
 
   let 
-    x = "money";
+    inherit morphero gix;
+    systemName = builtins.currentSystem;
   in
 {
   wayland.windowManager.hyprland = {
@@ -13,7 +14,9 @@
       # inputs.hyprland-virtual-desktops.packages.${pkgs.system}.virtual-desktops
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
-    extraConfig = builtins.readFile ./macbook.conf + builtins.readFile ./hyprland.conf +
+    # extraConfig = builtins.readFile ./macbook.conf + builtins.readFile ./hyprland.conf +
+    extraConfig = 
+      builtins.readFile ./hyprland.conf +
 
      ''
     # virtual desktop

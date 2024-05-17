@@ -111,15 +111,18 @@
     let
       system = "x86_64-linux";
 
+  morphero = true;
+  gix = "gix";
+
       pkgs = import inputs.nixpkgs  {
       inherit system;
       config = {
       allowUnfree = true;
       permittedInsecurePackages = [
      "electron-25.9.0"
-  ];
+        ];
 
-};
+          };
       };
 
       extraArgs = inputs;
@@ -132,6 +135,6 @@
     in
       {
         nixosConfigurations = 
-          import  ./systems.nix { inherit inputs system pkgs extraArgs specialArgs; };
+          import  ./systems.nix { inherit morphero  gix inputs system pkgs extraArgs specialArgs; };
       };
 }
