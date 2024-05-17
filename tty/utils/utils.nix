@@ -5,6 +5,7 @@
     rclone
     rm-improved
     fd
+    ripgrep
     cliphist
     powertop
 

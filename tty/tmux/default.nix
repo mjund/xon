@@ -117,7 +117,7 @@ in
       #   '';
       # }
     ];
-    prefix = "C-Space";
+    # prefix = "C-Space";
     baseIndex = 1;
     escapeTime = 0;
     keyMode = "vi";
