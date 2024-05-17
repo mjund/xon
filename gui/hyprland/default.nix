@@ -13,7 +13,7 @@
       # inputs.hyprland-virtual-desktops.packages.${pkgs.system}.virtual-desktops
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
-    extraConfig = builtins.readFile ./hyprland.conf +
+    extraConfig = builtins.readFile ./macbook.conf + builtins.readFile ./hyprland.conf +
 
      ''
     # virtual desktop
