@@ -22,6 +22,13 @@ let
       extraSpecialArgs = { inherit inputs; };
     })
   ];
+  xiuModule = [
+    home-manager.nixosModules.home-manager
+    (import ./xiu-modl.nix {
+      inherit inputs system;
+      extraSpecialArgs = { inherit inputs; };
+    })
+  ];
 
       inherit morphero gix;
 
@@ -57,8 +64,7 @@ in
         ./tty/srvcs
         ./tty/srvcs/vpns.nix
         ./hardware.nix
-        ./gui/hyprland/morhpero.nix
-      ] ++ giuModule ++ tiuModule;
+      ] ++ giuModule ++ tiuModule ++ xiuModule;
     };
 
     tix = nixosSystem {
