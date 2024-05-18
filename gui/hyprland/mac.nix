@@ -1,7 +1,8 @@
+
 {...}: {
     wayland.windowManager.hyprland = {
     extraConfig = 
-      builtins.readFile ./huawei.conf;
+      builtins.readFile ./macbook.conf;
 
 };
 }

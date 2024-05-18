@@ -29,9 +29,6 @@ let
       extraSpecialArgs = { inherit inputs; };
     })
   ];
-
-      inherit morphero gix;
-
 in
   {
 
@@ -46,9 +43,8 @@ in
         ./gui/sys/gcore.nix
         ./gui/srvcs/greetd.nix
         ./fonts/fonts.nix
-        ./gui/hyprland/morhpero.nix
         
-      ] ++ tiuModule ++ giuModule;
+      ] ++ tiuModule ++ giuModule ++ xiuModule;
     };
 
     gix = nixosSystem {
@@ -64,7 +60,7 @@ in
         ./tty/srvcs
         ./tty/srvcs/vpns.nix
         ./hardware.nix
-      ] ++ giuModule ++ tiuModule ++ xiuModule;
+      ] ++ giuModule ++ tiuModule ++ miuModule;
     };
 
     tix = nixosSystem {
