@@ -21,22 +21,22 @@ in {
   programs.schizofox = {
     enable = true;
 
-    search = {
-      defaultSearchEngine = "searx";
-      removeEngines = ["Brave" "Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia"];
-      searxRandomizer = {
-        enable = true;
+      search = rec {
+        defaultSearchEngine = "Searxng";
+        removeEngines = ["Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia" "LibRedirect" "DuckDuckGo"];
+        searxUrl = "https://search.notashelf.dev";
+        searxQuery = "${searxUrl}/search?q={searchTerms}&categories=general";
+        addEngines = [
+          {
+            Name = "Searxng";
+            Description = "Decentralized search engine";
+            Alias = "sx";
+            Method = "GET";
+            URLTemplate = "${searxQuery}";
+          }
+        ];
       };
-      # addEngines = [
-      #   {
-      #     Name = "Etherscan";
-      #     Description = "Checking balances";
-      #     Alias = "!eth";
-      #     Method = "GET";
-      #     URLTemplate = "https://etherscan.io/search?f=0&q={searchTerms}";
-      #   }
-      # ];
-    };
+
 
     security = {
       sanitizeOnShutdown = false;

@@ -20,6 +20,7 @@ programs.anyrun = {
         shell
         translate
         websearch
+        symbols
       ];
 
       width.fraction = 0.3;
