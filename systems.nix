@@ -29,6 +29,13 @@ let
       extraSpecialArgs = { inherit inputs; };
     })
   ];
+  miuModule = [
+    home-manager.nixosModules.home-manager
+    (import ./miu-modl.nix {
+      inherit inputs system;
+      extraSpecialArgs = { inherit inputs; };
+    })
+  ];
 in
   {
 

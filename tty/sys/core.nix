@@ -63,6 +63,7 @@ environment.sessionVariables = {
 
   environment.systemPackages = with pkgs; [
 
+    devenv
     unzip
     git
     nil
