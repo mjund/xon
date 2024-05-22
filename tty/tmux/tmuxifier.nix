@@ -1,67 +1,25 @@
 { pkgs, lib, ... }:
+let
+  muxPath = ".config/tmuxinator";
+in
 {
 
+home.file."${muxPath}/play.yml".text = ''
 
-  home.sessionPath = [
-      "$HOME/.tmuxifier/bin"
-    ];
+name: c
+root: ~/devel/
 
-
-  home.file.".tmuxifier" = {
-      recursive = true;
-      source = pkgs.fetchFromGitHub {
-        owner = "jimeh";
-        repo = "tmuxifier";
-        rev = "v0.13.0";
-        sha256 = "1b6a1cw2mnml84k5vhbcp58kvp94xlnlpp4kwdhqw4jrzfgcjfzd";
-      };
-            };
-  home.file.".tmuxifier/layouts/x.window.sh".text =
+windows:
+  - editor:
+      root: ~/devel/learn/c
+      layout: 7603,132x35,0,0[132x27,0,0,3,132x7,0,28{65x7,0,28,4,66x7,66,28,5}]
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - hx .
+        - watchexec -e c gcc -o showip main.c
+        - watchexec ./showip www.google.com
+'';
   
-  ''
-    # Set window root path. Default is `$session_root`.
-# Must be called before `new_window`.
-window_root "~/Desktop"
-
-# Create new window. If no argument is given, window name will be based on
-# layout file name.
-new_window "Example Window"
-
-# Split window into panes.
-split_v 20
-run_cmd "watch -t date"
-split_h 60
-
-# Set active pane.
-select_pane 0
-  '';
-
-  home.file.".tmuxifier/layouts/x.session.sh".text =
-  
-  ''
-  # Set a custom session root path. Default is `$HOME`.
-# Must be called before `initialize_session`.
-session_root "~/Documents"
-
-# Create session with specified name if it does not already exist. If no
-# argument is given, session name will be based on layout file name.
-if initialize_session "Example Session"; then
-
-  # Create a new window inline within session layout definition.
-  new_window "In-line Window"
-  tmux split-window -t "$session:$window.0" -v -p 50
-
-  # Load a defined window layout.
-  load_window "example"
-
-  # Select the default active window on session creation.
-  select_window 0
-
-fi
-
-# Finalize session creation and switch/attach to it.
-finalize_and_go_to_session
-
-   '';
-  
-  }
+}
