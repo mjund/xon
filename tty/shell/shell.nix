@@ -2,7 +2,8 @@
 let
 
   aliases = {
-    "rebld" = "doas nixos-rebuild switch --flake ~/xon/.#gix --impure";
+    "remac" = "doas nixos-rebuild switch --flake ~/xon/.#gix --impure";
+    "remorph" = "doas nixos-rebuild switch --flake ~/xon/.#morphero --impure";
     "pkg" = "nix-shell -p ";
     "db" = "distrobox";
     "arch" = "distrobox-enter Arch -- zsh";
@@ -10,18 +11,9 @@ let
     "eza" = lib.mkForce "eza -l --sort type --no-permissions --no-user --no-time --header --icons --no-filesize --group-directories-first";
     "tree" = "eza --tree";
     "ll" = lib.mkForce "eza -l";
-    "nv" = "nvim";
-    ":q" = "exit";
-    "q" = "exit";
-    "gs" = "git status";
-    "gb" = "git branch";
-    "gch" = "git checkout";
-    "gc" = "git commit";
-    "ga" = "git add";
     "gr" = "git reset --soft HEAD~1";
     "f" = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
     # "rm" = "gio trash";
-    "unx" = "nixos-rebuild switch --flake /home/mon/xon#gix";
   };
 
   variables = {
