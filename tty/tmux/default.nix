@@ -1,4 +1,18 @@
 { inputs, pkgs, ... }:
+let
+  confModules = [
+    ./bindings.conf
+    ./nav.conf
+    ./options.conf
+    ./theme.conf
+    ./extras.conf
+  ];
+
+  readFile = path: builtins.readFile path;
+  confContent = map readFile confModules; 
+  conf = builtins.concatStringsSep "\n" confContent;
+
+in
 { 
   programs.tmux = {
     enable = true;
@@ -21,11 +35,11 @@
         '';
       }
       {
-        plugin = tmuxPlugins.tmux-fzf;
+        plugin = tmux-fzf;
       }
       {
       # https://github.com/wfxr/tmux-fzf-url
-        plugin = tmuxPlugins.fzf-tmux-url;
+        plugin = fzf-tmux-url;
         extraConfig = ''
           # set -g @fzf-url-bind 'x'
           set -g @fzf-url-fzf-options '-p 60%,30% --prompt="   " --border-label=" Open URL "'
@@ -94,9 +108,8 @@
     keyMode = "vi";
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    extraConfig = with builtins; 
-      readFile ./bindings.conf ++ readFile ./nav.conf ++
-      readFile ./extras.conf ++ readFile ./options.conf;
+    extraConfig = conf;
   };
+
 
 }

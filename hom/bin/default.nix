@@ -34,7 +34,7 @@
   in
 
 {
-  home.package = [
+  home.packages = [
     devel-templ
     git-commit
     git-push
