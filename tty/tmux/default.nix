@@ -1,18 +1,4 @@
 { inputs, pkgs, ... }:
-let
-  confModules = [
-    ./bindings.conf
-    ./nav.conf
-    ./options.conf
-    ./theme.conf
-    ./extras.conf
-  ];
-
-  readFile = path: builtins.readFile path;
-  confContent = map readFile confModules; 
-  conf = builtins.concatStringsSep "\n" confContent;
-
-in
 { 
   programs.tmux = {
     enable = true;
@@ -108,7 +94,10 @@ in
     keyMode = "vi";
     mouse = true;
     shell = "${pkgs.zsh}/bin/zsh";
-    extraConfig = conf;
+    extraConfig = with builtins;
+    readFile ./bindings.conf + readFile ./theme.conf + 
+    readFile ./nav.conf    + readFile ./options.conf + 
+    readFile ./extras.conf;
   };
 
 
