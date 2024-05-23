@@ -4,6 +4,12 @@ let
 in
 {
 
+home.packages = [
+  (import ../../pkgs/tmuxifier/default.nix { inherit pkgs; })
+];
+     
+
+
 home.file."${muxPath}/play.yml".text = ''
 
 name: c
