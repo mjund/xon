@@ -1,20 +1,22 @@
-{ lib, stdenv, pkgs, ...}:
+{ lib, stdenv, fetchFromGitHub, pkgs, ... }:
 
-stdenv.mkDerivation rec {
-  src = pkgs.fetchFromGitHub {
-        owner = "jimeh";
-        repo = "tmuxifier";
-        rev = "895dace853fc4c979c8efd17c4206ea19ce837a6";
-        sha256 = "i8lsPdkQUZKZWq38EaLK8yVUDJfocVu4IhXwTZjGYMg=";
+stdenv.mkDerivation {
+  pname = "tmuxifier";
+  version = "895dace";
+
+  src = fetchFromGitHub {
+    owner = "jimeh";
+    repo = "tmuxifier";
+    rev = "895dace853fc4c979c8efd17c4206ea19ce837a6";
+    sha256 = "i8lsPdkQUZKZWq38EaLK8yVUDJfocVu4IhXwTZjGYMg=";
   };
 
-  nativeBuildInputs = with pkgs; [ installShellFiles makeWrapper ];
+  nativeBuildInputs = [ pkgs.installShellFiles pkgs.makeWrapper ];
 
   dontBuild = true;
 
   installPhase = ''
     runHook preInstall
-
 
     sed -i "s@set -e@TMUXIFIER=$out\nTMUXIFIER_LAYOUT_PATH=\"\''${TMUXIFIER_LAYOUT_PATH:-\$HOME/.tmux-layouts}\"\nset -e@" \
         bin/tmuxifier
@@ -27,7 +29,7 @@ stdenv.mkDerivation rec {
     sed -i "s@\$TMUXIFIER/completion/tmuxifier.tcsh@\$TMUXIFIER/share/tmuxifier/completion/tmuxifier.tcsh@g" \
         init.tcsh
     sed -i "s@\$TMUXIFIER/completion/tmuxifier.fish@\$TMUXIFIER/share/fish/vendor_completions.d/tmuxifier.fish@g" \
-        init.fish    
+        init.fish
 
     install -t $out/bin -Dm555 bin/tmuxifier
     install -t $out/share/tmuxifier/init -Dm444 init.fish init.sh init.tcsh
@@ -43,7 +45,6 @@ stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  
   meta = with lib; {
     description = "Powerful session, window & pane management for Tmux";
     homepage = "https://github.com/jimeh/tmuxifier";
@@ -52,5 +53,4 @@ stdenv.mkDerivation rec {
     maintainers = with maintainers; [ wigust ];
     platforms = platforms.unix;
   };
-  
-  }
+}

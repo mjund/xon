@@ -63,6 +63,9 @@ environment.sessionVariables = {
 
   environment.systemPackages = with pkgs; [
 
+
+    (import ../../pkgs/tmuxifier/default.nix { inherit pkgs lib stdenv fetchFromGitHub; })
+
     
     ydotool
     unzip
