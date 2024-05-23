@@ -64,6 +64,7 @@ environment.sessionVariables = {
   environment.systemPackages = with pkgs; [
 
     
+    ydotool
     unzip
     git
     nil

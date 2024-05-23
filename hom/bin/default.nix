@@ -9,6 +9,8 @@
     '';
     devel-templ = writeShellScriptBin "dvd" ''
 
+    doas ydotool key 42:1 110:1 110:0 42:0
+
     '';
 
     git-push = writeShellScriptBin "push" ''
