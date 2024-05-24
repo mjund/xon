@@ -10,16 +10,16 @@
         extraConfig = ''
         '';
       }
-      {
-# https://github.com/tmux-plugins/tmux-fpp
-        plugin = open;
-        extraConfig = ''
-        set -g @open 'x'
-        set -g @open-editor 'C-x'
-        set -g @open-B 'https://www.bing.com/search?q='
-        set -g @open-S 'https://www.google.com/search?q='
-        '';
-      }
+#       {
+# # https://github.com/tmux-plugins/tmux-fpp
+#         plugin = open;
+#         extraConfig = ''
+#         set -g @open 'x'
+#         set -g @open-editor 'C-x'
+#         set -g @open-B 'https://www.bing.com/search?q='
+#         set -g @open-S 'https://www.google.com/search?q='
+#         '';
+#       }
       {
         plugin = tmux-fzf;
       }
@@ -32,30 +32,30 @@
           set -g @fzf-url-history-limit '2000'
         '';
       }
-      {
-      # https://github.com/dominikduda/tmux_mode_indicator
-      # https://github.com/MunifTanjim/tmux-mode-indicator
-      # https://github.com/tmux-plugins/tmux-prefix-highlight
-        plugin = prefix-highlight;
-        extraConfig = ''
+      # {
+      # # https://github.com/dominikduda/tmux_mode_indicator
+      # # https://github.com/MunifTanjim/tmux-mode-indicator
+      # # https://github.com/tmux-plugins/tmux-prefix-highlight
+      #   plugin = prefix-highlight;
+      #   extraConfig = ''
 
-          set -g @prefix_highlight_fg 'white' # default is 'colour231'
-          set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
+      #     set -g @prefix_highlight_fg 'white' # default is 'colour231'
+      #     set -g @prefix_highlight_bg 'blue'  # default is 'colour04'
           
-           '';
-       }
-       {
-        plugin = jump;
-        extraConfig = ''
-          set -g @jump-key ';'
-          # keys will overlap with the word (default)
-          set -g @jump-keys-position 'left'
-          # keys will be at the left of the word without overlap
-          set -g @jump-keys-position 'off_left'
-          set -g @jump-bg-color '\e[0m\e[90m'
-          set -g @jump-fg-color '\e[1m\e[31m'
-        '';
-      }
+      #      '';
+      #  }
+      #  {
+      #   plugin = jump;
+      #   extraConfig = ''
+      #     set -g @jump-key ';'
+      #     # keys will overlap with the word (default)
+      #     set -g @jump-keys-position 'left'
+      #     # keys will be at the left of the word without overlap
+      #     set -g @jump-keys-position 'off_left'
+      #     set -g @jump-bg-color '\e[0m\e[90m'
+      #     set -g @jump-fg-color '\e[1m\e[31m'
+      #   '';
+      # }
       {
        # https://github.com/tmux-plugins/tmux-copycat
        # https://github.com/roosta/tmux-fuzzback
