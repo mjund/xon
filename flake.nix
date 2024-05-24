@@ -11,6 +11,10 @@
 
     schizofox.url = "github:schizofox/schizofox";
 
+    zellij = {
+      url = "github:zellij-org/zellij";
+    };
+    
     hyprland = {
       url = "github:hyprwm/Hyprland";
       follows = "hyprland-virtual-desktops/hyprland"; # To make sure we run the same version of hyprland that the plugin was built against
