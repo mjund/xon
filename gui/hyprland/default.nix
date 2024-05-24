@@ -1,9 +1,4 @@
-{ config, morphero, gix,... }: 
-
-  let 
-    inherit morphero gix;
-    systemName = builtins.currentSystem;
-  in
+{ ... }: 
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -15,8 +10,8 @@
       # inputs.hycov.packages.${pkgs.system}.hycov
     ];
     # extraConfig = builtins.readFile ./macbook.conf + builtins.readFile ./hyprland.conf +
-    extraConfig = 
-      builtins.readFile ./hyprland.conf +
+    extraConfig = with builtins;
+      readFile ./hyprland.conf + readFile ./workspaces.conf
 
      ''
     # virtual desktop

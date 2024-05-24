@@ -2,7 +2,7 @@
 {
   programs.zellij = {
     enable = true;
-    package = inputs.zellij.packages.${pkgs.system}.zellij
+    package = inputs.zellij.packages.${pkgs.system}.zellij;
     # enableZshIntegration = false;
     # settings = {
        # default_mode = "normal";

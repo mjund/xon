@@ -9,27 +9,23 @@ home.packages = [
 ];
 
 
-home.file.".tmux-layouts/wow.window.sh".text = ''
-
-
-# Set window root path. Default is `$session_root`.
-# Must be called before `new_window`.
+home.file.".tmux-layouts/template.window.sh".text = ''
 window_root "~/Desktop"
-
-# Create new window. If no argument is given, window name will be based on
-# layout file name.
 new_window "Example Window"
-
-# Split window into panes.
 split_v 20
 run_cmd "watch -t date"
 split_h 60
-
-# Set active pane.
 select_pane 0
 
 '';
-     
+home.file.".tmux-layouts/xon.window.sh".text = ''
+window_root "~/xon"
+new_window "xon"
+run_cmd "hx ."
+split_h 60
+select_pane 0
+
+'';
 
 
 home.file."${muxPath}/play.yml".text = ''

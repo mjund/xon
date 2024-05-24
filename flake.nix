@@ -12,7 +12,7 @@
     schizofox.url = "github:schizofox/schizofox";
 
     zellij = {
-      url = "github:zellij-org/zellij";
+      url = "github:crabdancing/zellij-flake";
     };
     
     hyprland = {
