@@ -11,7 +11,10 @@
     ];
     # extraConfig = builtins.readFile ./macbook.conf + builtins.readFile ./hyprland.conf +
     extraConfig = with builtins;
-      readFile ./hyprland.conf + readFile ./workspaces.conf
+      readFile ./binding.conf +
+       readFile ./workspaces.conf +
+        readFile ./general.conf +
+          
 
      ''
     # virtual desktop

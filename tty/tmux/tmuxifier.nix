@@ -21,9 +21,12 @@ select_pane 0
 home.file.".tmux-layouts/xon.window.sh".text = ''
 window_root "~/xon"
 new_window "xon"
+split_v 70
+select_pane 1
 run_cmd "hx ."
 split_h 60
-select_pane 0
+run_cmd "hx ."
+select_pane 1
 
 '';
 
