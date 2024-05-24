@@ -25,8 +25,8 @@ return {
 		brightness = 0.8,
 	},
 
-	window_background_opacity = 1.0,
+	window_background_opacity = 0.9,
 	text_background_opacity = 1.0,
 
-	keys = require("keys"),
+	-- keys = require("keys"),
 }
