@@ -7,6 +7,7 @@
 
   imports = 
     [
+      ../ags
       ../hyprland
       ../editors/vscode.nix
       ../terminals/wezterm.nix

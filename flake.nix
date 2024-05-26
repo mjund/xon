@@ -14,6 +14,8 @@
     zellij = {
       url = "github:crabdancing/zellij-flake";
     };
+
+    ags.url = "github:Aylur/ags";
     
     hyprland = {
       url = "github:hyprwm/Hyprland";
