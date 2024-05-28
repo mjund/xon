@@ -2,6 +2,7 @@
 
   home.packages = with pkgs; [
 
+    watchexec
     inputs.devenv.packages."${pkgs.system}".devenv
     rclone
     rm-improved

@@ -29,6 +29,18 @@ run_cmd "hx ."
 select_pane 1
 
 '';
+home.file.".tmux-layouts/ags.window.sh".text = ''
+window_root "~/.config/ags"
+new_window "ags"
+split_v 70
+watchexec -e js ags
+select_pane 1
+run_cmd "hx ."
+split_h 60
+run_cmd "hx ."
+select_pane 1
+
+'';
 
 
 home.file."${muxPath}/play.yml".text = ''
