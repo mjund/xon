@@ -14,7 +14,6 @@
   environment.systemPackages = with pkgs; [
 
   inputs.wezterm.packages.${pkgs.system}.default
-  
   obsidian
   alacritty
   firefox

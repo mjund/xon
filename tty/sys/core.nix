@@ -13,6 +13,13 @@
   };
   };
 
+  services = {
+
+    upower.enable = true;
+    gvfs.enable = true;
+    
+  };
+
 
   # hardware
 
@@ -66,7 +73,6 @@ environment.sessionVariables = {
 
     (import ../../pkgs/tmuxifier/default.nix { inherit pkgs lib stdenv fetchFromGitHub; })
 
-    
     ydotool
     unzip
     git
