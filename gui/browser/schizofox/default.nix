@@ -74,7 +74,7 @@ in {
         "{19561335-5a63-4b4e-8182-1eced17f9b47}".install_url = "${exturl}/linkding-injector/latest.xpi";
         "{762f9885-5a13-4abd-9c77-433dcd38b8fd}".install_url = "${exturl}/return-youtube-dislikes/latest.xpi";
         "{3c078156-979c-498b-8990-85f7987dd929}".install_url = "${exturl}/sidebery/latest.xpi";
-        "uget-integration@slgobinath".install_url = "${exturl}/ugetintegration/latest.xpi";
+        # "uget-integration@slgobinath".install_url = "${exturl}/ugetintegration/latest.xpi";
         "CanvasBlocker@kkapsner.de".install_url = "${exturl}/canvasblocker/latest.xpi";
         "{76aabc99-c1a8-4c1e-832b-d4f2941d5a7a}".install_url = "${exturl}/catppuccin-mocha-mauve-git/latest.xpi";
         "@contain-amzn".install_url = "${exturl}/contain-amazon/latest.xpi";
@@ -217,7 +217,7 @@ in {
     };
   };
   home.packages = with pkgs; [
-    uget-integrator
+    # uget-integrator
     tridactyl-native
   ];
   home.file = {
@@ -226,7 +226,7 @@ in {
     ".mozilla/firefox/schizo.default/chrome/icons/".source = arcwtf + "/icons";
     ".mozilla/firefox/schizo.default/chrome/toolbar/".source = arcwtf + "/toolbar";
     ".mozilla/firefox/schizo.default/chrome/tweaks/".source = arcwtf + "/tweaks";
-    ".mozilla/native-messaging-hosts/com.ugetdm.firefox.json".source = "${pkgs.uget-integrator}/lib/mozilla/native-messaging-hosts/com.ugetdm.firefox.json";
+    # ".mozilla/native-messaging-hosts/com.ugetdm.firefox.json".source = "${pkgs.uget-integrator}/lib/mozilla/native-messaging-hosts/com.ugetdm.firefox.json";
     ".mozilla/native-messaging-hosts/tridactyl.json".source = "${pkgs.tridactyl-native}/lib/mozilla/native-messaging-hosts/tridactyl.json";
   };
   xdg = {

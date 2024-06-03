@@ -1,0 +1,10 @@
+
+set newtab hn.algolia.com
+
+unbind <C-f>
+
+set smoothscroll true
+bind j scrolline 5
+bind k scrolline -5
+
+colorscheme midnight
