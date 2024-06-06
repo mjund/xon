@@ -231,7 +231,7 @@ in {
   };
   xdg = {
     configFile = {
-      # "tridactyl/tridactylrc".source = ./tridactylrc;
+      "tridactyl/tridactylrc".source = ./tridactylrc;
       "tridactyl/themes/catppuccin.css".source =
         catppuccin-tridactyl + "/catppuccin.css";
     };
