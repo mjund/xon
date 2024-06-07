@@ -13,6 +13,7 @@
 
   environment.systemPackages = with pkgs; [
 
+  st
   inputs.wezterm.packages.${pkgs.system}.default
   obsidian
   alacritty
