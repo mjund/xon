@@ -56,7 +56,10 @@ set searchurls.wb https://web.archive.org/web/*/%s
 " marks
 quickmark g https://chatgpt.com
 
-" extras" 
+command wayback composite get_current_url | tabopen wb
+
+" extras
+
 " Git{Hub,Lab} git clone via SSH yank
 bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git") | clipboard yank
 

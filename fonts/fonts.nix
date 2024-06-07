@@ -12,7 +12,7 @@ in
     vazir-fonts
     monaspace
     (nerdfonts.override {fonts = ["IosevkaTerm" "FiraCode" "DroidSansMono" ];})
-    (iosevka-bin.override {variant = "slab";})
+    # (iosevka-bin.override {variant = "slab";})
     ];
 
     fontconfig = {

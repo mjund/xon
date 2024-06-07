@@ -69,7 +69,7 @@ end
     zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     initExtra = ''
         SHELL=${pkgs.zsh}/bin/zsh
         zstyle ':completion:*' menu select

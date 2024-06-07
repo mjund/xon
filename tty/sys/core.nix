@@ -73,6 +73,7 @@ environment.sessionVariables = {
 
     (import ../../pkgs/tmuxifier/default.nix { inherit pkgs lib stdenv fetchFromGitHub; })
 
+    # zellij
     ydotool
     unzip
     git

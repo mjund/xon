@@ -4,16 +4,11 @@
 
   inputs = {
 
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     devenv.url = "github:cachix/devenv/latest";
 
     schizofox.url = "github:schizofox/schizofox";
-
-    zellij = {
-      url = "github:crabdancing/zellij-flake";
-    };
 
     ags.url = "github:Aylur/ags";
     
@@ -21,11 +16,11 @@
       url = "github:hyprwm/Hyprland";
       follows = "hyprland-virtual-desktops/hyprland"; # To make sure we run the same version of hyprland that the plugin was built against
     };
+
     hyprland-virtual-desktops = {
       url = "github:levnikmyskin/hyprland-virtual-desktops";
       # inputs.hyprland.follows = "hyprland";
       };
-    
     
     hycov = {
       url = "github:DreamMaoMao/hycov";
@@ -63,52 +58,6 @@
     # tmux 
 
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
-
-    # neovim-flake = {
-    #   #url = git+file:///home/gvolpe/workspace/neovim-flake;
-    #   url = github:gvolpe/neovim-flake;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # # Fish shell
-
-    # fish-bobthefish-theme = {
-    #   url = github:gvolpe/theme-bobthefish;
-    #   flake = false;
-    # };
-
-    # fish-keytool-completions = {
-    #   url = github:ckipp01/keytool-fish-completions;
-    #   flake = false;
-    # };
-
-    # # Github Markdown ToC generator
-
-    # gh-md-toc = {
-    #   url = github:ekalinin/github-markdown-toc;
-    #   flake = false;
-    # };
-
-    # Nix linter
-
-    # statix = {
-    #   url = github:nerdypepper/statix;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # Miscelaneous
-
-    # cowsay = {
-    #   url = github:snowfallorg/cowsay;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # Firefox style
-    penguin-fox = {
-      url = "github:p3nguin-kun/penguinFox";
-      flake = false;
-    };
-
     
   };
 

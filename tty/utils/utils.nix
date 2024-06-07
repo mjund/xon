@@ -49,7 +49,7 @@
   eza = {
     enable = true;
     icons = true;
-    enableAliases = true;
+    # enableAliases = true;
   };
 
    zoxide = {

@@ -5,7 +5,7 @@
   programs.ags = {
     enable = true;
 
-    configDir = ../agss;
+    configDir = ./ags;
 
 
     extraPackages = with pkgs; [
