@@ -1,4 +1,4 @@
-{ morphero, gix, inputs, system , pkgs,  ...}: 
+{ inputs, system , pkgs,  ...}: 
 
 with inputs;
 

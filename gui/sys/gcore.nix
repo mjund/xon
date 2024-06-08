@@ -2,7 +2,7 @@
 {
   programs.hyprland = {
   enable  = true;
-  package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   
@@ -13,6 +13,7 @@
 
   environment.systemPackages = with pkgs; [
 
+  sakura
   st
   inputs.wezterm.packages.${pkgs.system}.default
   obsidian
