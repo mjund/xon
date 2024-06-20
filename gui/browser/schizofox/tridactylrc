@@ -20,15 +20,21 @@ guiset_quiet hoverlink right
 " keymaps
 keymap ; :
 keymap : ;
+keymap o t
+keymap t o
 
 " binding
 
 bind gr reader
 bind gR reader --tab
+// bind o tabopen
 
 " up and down history
-bind --mode=ex <ArrowUp> ex.prev_history
-bind --mode=ex <ArrowDown> ex.next_history
+bind --mode=ex <ArrowUp> ex.prev_completion
+bind --mode=ex <ArrowDown> ex.next_completion
+bind --mode=ex <S-Tab> ex.prev_history
+bind --mode=ex <Tab> ex.next_history
+
 unbind <C-f>
 unbindurl github.com --mode=normal t
 bind ;c hint -Jc [class*="expand"],[class="togg"],[class="comment_folder"]

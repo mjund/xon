@@ -13,6 +13,7 @@
 
   environment.systemPackages = with pkgs; [
 
+  todoist-electron
   sakura
   st
   inputs.wezterm.packages.${pkgs.system}.default

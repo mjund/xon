@@ -51,7 +51,7 @@ in {
       drm.enable = true;
       disableWebgl = false;
       firefoxSync = true;
-      startPageURL = "https://homepage.nixlap.top";
+      startPageURL = "https://hn.algolia.com";
     };
 
     extensions = {
@@ -121,6 +121,7 @@ in {
       "layout.css.backdrop-filter.enabled" = true;
       "layers.acceleration.force-enabled" = true;
       #Disable resistFingerprinting and override with much more customizable fingerprintingProtection
+      "privacy.firstparty.isolate" = false;
       "privacy.resistFingerprinting" = false;
       "privacy.resistFingerprinting.pbmode" = false;
       "privacy.fingerprintingProtection" = true;
