@@ -39,6 +39,16 @@ let
 in
   {
 
+
+    livx = nixosSystem {
+      inherit lib pkgs system;
+      modules = [
+        "${pkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        ./installer/minimal-cam.nix
+      ];
+      
+    };
+
     morphero = nixosSystem {
       # systemName = "morphero";
       inherit lib pkgs system;
