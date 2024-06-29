@@ -59,14 +59,18 @@ in {
       darkreader.enable = false;
 
       extraExtensions = {
+        "{b764208e-0a98-436d-a599-c1baa044f829}".install_url = "${exturl}/chatgptbox/latest.xpi";
+        "tab-stash@condordes.net".install_url = "${exturl}/tab-stash/latest.xpi";
+        "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}".install_url = "${exturl}/traduzir-paginas-web/latest.xpi";
+        "browsec@browsec.com".install_url = "${exturl}/browsec/latest.xpi";
         "webextension@metamask.io".install_url = "${exturl}/ether-metamask/latest.xpi";
         "languagetool-webextension@languagetool.org".install_url = "${exturl}/languagetool/latest.xpi";
         "tridactyl.vim@cmcaine.co.uk".install_url = "${exturl}/tridactyl-vim/latest.xpi";
         "admin@2fas.com".install_url = "${exturl}/2fas-two-factor-authentication/latest.xpi";
-        "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}".install_url = "${exturl}/styl-us/latest.xpi";
+        # "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}".install_url = "${exturl}/styl-us/latest.xpi";
         "{9a41dee2-b924-4161-a971-7fb35c053a4a}".install_url = "${exturl}/enhanced-h264ify/latest.xpi";
         "{446900e4-71c2-419f-a6a7-df9c091e268b}".install_url = "${exturl}/bitwarden-password-manager/latest.xpi";
-        "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}".install_url = "${exturl}/refined-github-/latest.xpi";
+        # "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}".install_url = "${exturl}/refined-github-/latest.xpi";
         "sponsorBlocker@ajay.app".install_url = "${exturl}/sponsorblock/latest.xpi";
         "{61a05c39-ad45-4086-946f-32adb0a40a9d}".install_url = "${exturl}/linkding-extension/latest.xpi";
         "{f209234a-76f0-4735-9920-eb62507a54cd}".install_url = "${exturl}/unpaywall/latest.xpi";
