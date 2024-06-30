@@ -13,15 +13,15 @@
   boot.kernelModules = [ "kvm-intel" "wl" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c85f752c-419d-4cbc-9d4d-25083dbf02ee";
-      fsType = "ext4";
-    };
+  # fileSystems."/" =
+  #   { device = "/dev/disk/by-uuid/c85f752c-419d-4cbc-9d4d-25083dbf02ee";
+  #     fsType = "ext4";
+  #   };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8B63-1461";
-      fsType = "vfat";
-    };
+  # fileSystems."/boot" =
+  #   { device = "/dev/disk/by-uuid/8B63-1461";
+  #     fsType = "vfat";
+  #   };
 
   swapDevices = [ ];
 

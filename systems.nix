@@ -44,7 +44,13 @@ in
       inherit lib pkgs system;
       modules = [
         "${pkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-        ./installer/minimal-cam.nix
+        ./installer/minimal-mac.nix
+        ({pkgs, ...}: {
+          networking.networkmanager.enable = true;
+          environment.systemPackages = with pkgs; [
+           hx 
+          ];
+        })
       ];
       
     };
@@ -77,6 +83,7 @@ in
         ./tty/srvcs
         ./tty/srvcs/vpns.nix
         ./hardware.nix
+        ./disks/macdisk.nix
       ] ++ giuModule ++ tiuModule ++ miuModule;
     };
 
