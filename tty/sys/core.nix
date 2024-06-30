@@ -10,6 +10,11 @@
     };
     efi.canTouchEfiVariables = true;
     timeout = 4;
+    # grub = {
+    #   enable = true;
+    #   efiSupport = true;
+    #   efiInstallAsRemovable = true;
+    # };
   };
   };
 

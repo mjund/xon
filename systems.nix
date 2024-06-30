@@ -76,6 +76,8 @@ in
       inherit lib pkgs system;
       specialArgs = { inherit inputs; };
       modules = [
+        inputs.disko.nixosModules.disko
+        ./disks/macdisk.nix
         ./fonts/fonts.nix
         ./tty/sys/core.nix
         ./gui/sys/gcore.nix
@@ -83,7 +85,6 @@ in
         ./tty/srvcs
         ./tty/srvcs/vpns.nix
         ./hardware.nix
-        ./disks/macdisk.nix
       ] ++ giuModule ++ tiuModule ++ miuModule;
     };
 

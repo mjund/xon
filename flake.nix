@@ -8,6 +8,11 @@
 
     devenv.url = "github:cachix/devenv/latest";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     schizofox.url = "github:schizofox/schizofox";
 
     ags.url = "github:Aylur/ags";
