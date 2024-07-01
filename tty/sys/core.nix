@@ -9,7 +9,7 @@
       configurationLimit = 10;
     };
     efi.canTouchEfiVariables = true;
-    timeout = 4;
+    # timeout = 4;
     # grub = {
     #   enable = true;
     #   efiSupport = true;
@@ -74,6 +74,7 @@
 
   networking = { 
     hostName = "hix";
+    wireless.enable = false;
     networkmanager.enable = true;
     };
   

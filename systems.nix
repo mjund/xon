@@ -61,7 +61,7 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./installer/live.nix
-        ./huawei.nix
+        # ./huawei.nix
         ./tty/srvcs
         ./tty/sys/core.nix
         ./gui/sys/gcore.nix
