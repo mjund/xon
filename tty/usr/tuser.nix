@@ -9,6 +9,7 @@
     [
       ../zellij
       ../../hom/bin
+      ../../hom/fns
       ../tmux/tmuxifier.nix
       ../tmux
       ../shell

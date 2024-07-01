@@ -7,6 +7,18 @@
     echo 'disabled' > '/sys/bus/usb/devices/2-1.8.2/power/wakeup';
 
     '';
+
+    worksp = writeShellScriptBin "worksp" ''
+
+    hyprctl dispatch exec sakura -x 'tmuxifier s sys'
+    hyprctl dispatch movetoworkspace special:ai
+    hyprctl dispatch exec webcord
+    hyprctl dispatch movetoworkspace special:chat
+    hyprctl dispatch exec obsidian 
+    hyprctl dispatch movetoworkspace special:notes
+
+    '';
+    
     devel-templ = writeShellScriptBin "dvd" ''
 
     doas ydotool key 42:1 110:1 110:0 42:0
@@ -37,6 +49,7 @@
 
 {
   home.packages = [
+    worksp
     devel-templ
     git-commit
     git-push

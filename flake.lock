@@ -145,6 +145,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1719733833,
+        "narHash": "sha256-6h2EqZU9bL9rHlXE+2LCBgnDImejzbS+4dYsNDDFlkY=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "d185770ea261fb5cf81aa5ad1791b93a7834d12c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -1042,6 +1062,22 @@
         "type": "github"
       }
     },
+    "penguin-fox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712319001,
+        "narHash": "sha256-7+eA34alQJpKNsGKdHkjFLbRg1yX6J9yORLAytV2jO0=",
+        "owner": "p3nguin-kun",
+        "repo": "penguinFox",
+        "rev": "748d17932ab20ef59db90b7241b5efa70031beb7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "p3nguin-kun",
+        "repo": "penguinFox",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -1100,6 +1136,7 @@
         "ags": "ags",
         "anyrun": "anyrun",
         "devenv": "devenv",
+        "disko": "disko",
         "home-manager": "home-manager",
         "hycov": "hycov",
         "hyprfocus": "hyprfocus",
@@ -1110,6 +1147,7 @@
         "hyprland-virtual-desktops": "hyprland-virtual-desktops",
         "nixpkgs": "nixpkgs_6",
         "nur": "nur",
+        "penguin-fox": "penguin-fox",
         "rycee-nurpkgs": "rycee-nurpkgs",
         "schizofox": "schizofox",
         "tmux-sessionx": "tmux-sessionx",

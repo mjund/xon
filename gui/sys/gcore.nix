@@ -13,19 +13,20 @@
 
   environment.systemPackages = with pkgs; [
 
-  todoist-electron
-  sakura
-  st
-  inputs.wezterm.packages.${pkgs.system}.default
-  obsidian
-  alacritty
-  firefox
-  webcord
-  xdg-utils
-  # handlr
+    betterbird
+    todoist-electron
+    sakura
+    st
+    inputs.wezterm.packages.${pkgs.system}.default
+    obsidian
+    alacritty
+    firefox
+    webcord
+    xdg-utils
+    # handlr
 
-  gnome.nautilus
-  gnome.sushi
+    gnome.nautilus
+    gnome.sushi
     
   ]; 
 

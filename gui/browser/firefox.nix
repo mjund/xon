@@ -43,7 +43,8 @@ let
    unpaywall
 
    # ];
-  ] ++ (with customAddons; [ chatgpt https]);
+  ];
+  # ++ (with customAddons; [ chatgpt https]);
 
   # disable the annoying floating icon with camera and mic when on a call
   disableWebRtcIndicator = ''
