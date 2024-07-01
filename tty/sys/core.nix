@@ -22,11 +22,21 @@
 
     upower.enable = true;
     gvfs.enable = true;
+    devmon.enable = true;
+    udisks2.enable = true;
     
   };
 
 
-  # hardware
+  # Enable automounting
+
+  # Install necessary packages
+
+  # Configure auto-mount options
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", \
+      RUN{program}+="${pkgs.udisks}/bin/udisksctl mount -b /dev/%k --no-user-interaction"
+  ''; # hardware
 
   hardware = {
     # pulseaudio = {
@@ -98,6 +108,9 @@ environment.sessionVariables = {
   environment.systemPackages = with pkgs; [
 
 
+    udisks
+    gvfs
+    usbutils
     (import ../../pkgs/tmuxifier/default.nix { inherit pkgs lib stdenv fetchFromGitHub; })
 
     # zellij

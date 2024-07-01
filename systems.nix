@@ -43,23 +43,24 @@ in
     livx = nixosSystem {
       inherit lib pkgs system;
       modules = [
-        "${pkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        # "${pkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
         ./installer/minimal-mac.nix
         ({pkgs, ...}: {
           networking.networkmanager.enable = true;
           environment.systemPackages = with pkgs; [
-           hx 
+           helix 
           ];
         })
       ];
       
     };
 
-    morphero = nixosSystem {
+    livero = nixosSystem {
       # systemName = "morphero";
       inherit lib pkgs system;
       specialArgs = { inherit inputs; };
       modules = [
+        ./installer/live.nix
         ./huawei.nix
         ./tty/srvcs
         ./tty/sys/core.nix
@@ -69,6 +70,7 @@ in
         
       ] ++ tiuModule ++ giuModule ++ xiuModule;
     };
+
 
     gix = nixosSystem {
       # morphero = false;
