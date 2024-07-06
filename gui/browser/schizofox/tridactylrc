@@ -15,6 +15,7 @@ guiset_quiet hoverlink right
 
 " Ignored sites
 "autocmd DocStart youtube.com mode ignore
+autocmd DocStart falstad.com mode ignore
 
 
 " keymaps

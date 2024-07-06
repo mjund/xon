@@ -71,6 +71,21 @@ in
       ] ++ tiuModule ++ giuModule ++ xiuModule;
     };
 
+    morphero = nixosSystem {
+      # systemName = "morphero";
+      inherit lib pkgs system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./huawei.nix
+        ./tty/srvcs
+        ./tty/sys/core.nix
+        ./gui/sys/gcore.nix
+        ./gui/srvcs/greetd.nix
+        ./fonts/fonts.nix
+        
+      ] ++ tiuModule ++ giuModule ++ xiuModule;
+    };
+
 
     gix = nixosSystem {
       # morphero = false;

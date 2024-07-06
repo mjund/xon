@@ -59,6 +59,7 @@ in {
       darkreader.enable = false;
 
       extraExtensions = {
+        "{40289693-01fe-4740-91ae-07344bf5b09b}".install_url = "${exturl}/smart_toc/latest.xpi";
         "{b764208e-0a98-436d-a599-c1baa044f829}".install_url = "${exturl}/chatgptbox/latest.xpi";
         "tab-stash@condordes.net".install_url = "${exturl}/tab-stash/latest.xpi";
         "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}".install_url = "${exturl}/traduzir-paginas-web/latest.xpi";
@@ -91,6 +92,8 @@ in {
     };
 
     settings = {
+      # disable alt 
+      "ui.key.menuAccessKey" = 0;
       # smoothfox stuff
       "nglayout.initialpaint.delay" = 0;
       "nglayout.initialpaint.delay_in_oopif" = 0;

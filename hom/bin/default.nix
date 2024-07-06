@@ -8,16 +8,44 @@
 
     '';
 
+    
+    setxon = writeShellScriptBin "setxon" ''
+     worksp sakura  special:ai && worksp "chromium https://claude.ai" special:magic && worksp obsidian special:notes && worksp webcord special:chat &&  worksp betterbird special:mail     
+    '';
+
     worksp = writeShellScriptBin "worksp" ''
 
-    hyprctl dispatch exec sakura -x 'tmuxifier s sys'
-    hyprctl dispatch movetoworkspace special:ai
-    hyprctl dispatch exec webcord
-    hyprctl dispatch movetoworkspace special:chat
-    hyprctl dispatch exec obsidian 
-    hyprctl dispatch movetoworkspace special:notes
+
+   lam() {
+
+        # Extract the workspace argument (last argument)
+        workspace="''${@: -1}"
+        
+        # Get all arguments except the last one (app command)
+        app_command="''${@:1:$#-1}"
+        
+        # Launch the application
+        hyprctl dispatch exec "$app_command"
+        
+        # Wait for the application window to appear
+        sleep 3
+        
+        # Move the application to the specified workspace
+        hyprctl dispatch movetoworkspace "$workspace",address:$(hyprctl activewindow -j | jq -r '.address')
+    }
+
+    # Check if at least two arguments are provided
+    if [ $# -lt 2 ]; then
+        echo "Usage: $0 <app_command> <workspace>"
+        echo "Example: $0 \"firefox --arg 1 2 3\" workspace3"
+        exit 1
+    fi
+
+    # Call the function with all provided arguments
+    lam "$@"  
 
     '';
+
     
     devel-templ = writeShellScriptBin "dvd" ''
 
@@ -49,6 +77,7 @@
 
 {
   home.packages = [
+    setxon
     worksp
     devel-templ
     git-commit

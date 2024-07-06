@@ -8,6 +8,10 @@
 
     devenv.url = "github:cachix/devenv/latest";
 
+    matugen = {
+    url = "github:/InioX/Matugen";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

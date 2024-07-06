@@ -1,7 +1,8 @@
 
 { pkgs, ...}: 
-{
-  programs.zsh.initExtra = ''
+
+let funcs = ''
+
  lam() {
     app=$1
     workspace=$2
@@ -16,6 +17,11 @@
     hyprctl dispatch movetoworkspace $workspace,address:$(hyprctl activewindow -j | jq -r '.address')
 }
 
-  '';
+'';
+in
+{
+  programs.zsh.initExtra = funcs;
+  programs.bash.initExtra = funcs;
+
 }
   

@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 let
-
   aliases = {
+    "setxon" = "worksp betterbird special:mail && worksp obsidian special:notes && worksp webcord special:chat && worksp chromium  special:magic && worksp sakura special:ai";
     "remac" = "doas nixos-rebuild switch --flake ~/xon/.#gix --impure";
     "remorph" = "doas nixos-rebuild switch --flake ~/xon/.#morphero --impure";
     "pkg" = "nix-shell -p ";
