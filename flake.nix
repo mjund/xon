@@ -8,6 +8,8 @@
 
     devenv.url = "github:cachix/devenv/latest";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     matugen = {
     url = "github:/InioX/Matugen";
     };

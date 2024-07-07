@@ -27,7 +27,8 @@
   imports = 
     [
 
-      ../../hom/obsVlt.nix
+      # ../../hom/obsVlt.nix
+      ../flatpak
       ../ags
       ../hyprland
       ../editors/vscode.nix

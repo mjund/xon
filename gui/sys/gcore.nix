@@ -31,6 +31,7 @@
   ]; 
 
   services = {
+    flatpak.enable = true;
     gvfs = {
       enable = true;
       package = pkgs.gnome.gvfs;
