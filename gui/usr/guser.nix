@@ -28,7 +28,7 @@
     [
 
       # ../../espanso
-      ../esp
+      # ../esp
       # ../../hom/obsVlt.nix
       ../flatpak
       ../ags
