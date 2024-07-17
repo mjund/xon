@@ -29,7 +29,7 @@
   imports = 
     [
 
-      ../../espanso
+      ../espanso
       # ../../hom/obsVlt.nix
       ../flatpak
       ../ags
