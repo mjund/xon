@@ -24,8 +24,6 @@
     # gnome.sushi
   ];
 
-  # hi
-
   imports = 
     [
 
