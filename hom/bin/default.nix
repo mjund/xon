@@ -10,7 +10,7 @@
 
     
     setxon = writeShellScriptBin "setxon" ''
-     worksp sakura  special:ai && worksp "chromium https://claude.ai" special:magic && worksp obsidian special:notes && worksp webcord special:chat &&  worksp betterbird special:mail     
+     worksp 'sakura -x "zellij --layout sys"' special:conf && worksp 'chromium "https://claude.ai" "https://chatgpt.com"' special:magic && worksp obsidian special:notes && worksp webcord special:chat &&  worksp betterbird special:mail && worksp todoist-electron special:tasks && worksp drawio special:diagram && worksp sakura special:ai && hyprctl dispatch togglefloating; hyprctl dispatch resizeactive exact 80% 20%; hyprctl dispatch centerwindow 
     '';
 
     worksp = writeShellScriptBin "worksp" ''

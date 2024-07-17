@@ -38,19 +38,14 @@ split_v 70
 run_cmd "watchexec -r -e js ags"
 select_pane 1
 run_cmd "hx ."
-split_h 60
-run_cmd "hx ."
-select_pane 1
 
 '';
 
 home.file.".tmux-layouts/sys.session.sh".text = ''
 if initialize_session "sys"; then
 
-  load_window "xon"
   load_window "ags"
 
-  select_window 1
 
 fi
 finalize_and_go_to_session

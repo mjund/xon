@@ -8,6 +8,11 @@
 
     devenv.url = "github:cachix/devenv/latest";
 
+    tmux = {
+      url = "github:tmux/tmux";
+      flake = false;
+    };
+
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     matugen = {

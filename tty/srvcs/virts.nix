@@ -13,11 +13,17 @@
      uid = 1027;
    };
     environment.systemPackages = with pkgs; [
+
     vagrant
     spice
     spice-gtk
     spice-protocol
+    virt-manager
     virt-viewer
+    qemu
+    OVMF
+    glib
+    gnome.adwaita-icon-theme
     #virtio-win
     #win-spice
   ];

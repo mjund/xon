@@ -1,6 +1,7 @@
 { lib, pkgs, config, ... }:
 let
   aliases = {
+    "trb" = "tmux new-session -t rebld";
     "setxon" = "worksp betterbird special:mail && worksp obsidian special:notes && worksp webcord special:chat && worksp chromium  special:magic && worksp sakura special:ai";
     "remac" = "doas nixos-rebuild switch --flake ~/xon/.#gix --impure";
     "remorph" = "doas nixos-rebuild switch --flake ~/xon/.#morphero --impure";

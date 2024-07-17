@@ -94,6 +94,7 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         inputs.disko.nixosModules.disko
+        # ./espanso
         ./disks/macdisk.nix
         ./fonts/fonts.nix
         ./tty/sys/core.nix

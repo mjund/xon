@@ -80,7 +80,7 @@
   
    
   users.users.mon.isNormalUser = true;
-  users.users.mon.extraGroups = ["wheel" "networkmanager" "keyd"];
+  users.users.mon.extraGroups = ["wheel" "networkmanager" "keyd" "input"];
   
 
  environment.variables = {
@@ -109,6 +109,7 @@ environment.sessionVariables = {
   environment.systemPackages = with pkgs; [
 
 
+    ueberzug
     udisks
     gvfs
     usbutils
