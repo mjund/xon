@@ -9,6 +9,8 @@
         { id = "ijpiffheldgmdkbaohoilabdnmeinand"; }
         { id = "ppbibelpcjmhbdihakflkdcoccbgbkpo"; }
         { id = "idnnbdplmphpflfnlkomgpfbpcgelopg"; }
+        { id = "iaakpnchhognanibcahlpcplchdfmgma"; }
+        { id = "omghfjlpggmjjaagoclmmobgdodcjboh"; }
       ];
     };
   };

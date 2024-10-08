@@ -19,6 +19,7 @@
 
   environment.systemPackages = with pkgs; [
 
+    pomodoro-gtk
     drawio
     betterbird
     todoist-electron
@@ -39,6 +40,12 @@
   ]; 
 
   services = {
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
     # espanso.enable = true;
     # espanso.wayland = true;
     # espanso.package = mkIf (cfg.wayland or false) pkgs.espanso-wayland;

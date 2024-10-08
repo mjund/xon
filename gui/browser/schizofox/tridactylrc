@@ -5,7 +5,7 @@ sanitise tridactylsync tridactyllocal
 set newtab https://hn.algolia.com
 set searchengine bing
 set smoothscroll true
-set leavegithubalone true
+set leavegithubalone false
 
 
 colorscheme midnight
@@ -48,6 +48,7 @@ bind } js (function() { var nextTargetElements = document.querySelectorAll('h1, 
 
 " quick search engines
 
+set searchurls.g https://google.com/search?q=%s
 set searchurls.tw https://twitter.com/search?q=%s
 set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.s https://sourcegraph.com/search?q=%s

@@ -92,6 +92,8 @@ in {
     };
 
     settings = {
+      # "browser.zoom.siteSpecific" = false;
+      # "browser.zoom.full" = 150;
       # disable alt 
       "ui.key.menuAccessKey" = 0;
       # smoothfox stuff

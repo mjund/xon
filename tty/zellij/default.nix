@@ -22,6 +22,16 @@ in
           args "."
         }
     	}
+tab name="ags" cwd="/home/mon/.config/ags" split_direction="horizontal" hide_floating_panes=true {
+        floating_panes {
+          pane name="rebld" command="bash" {
+            args "-c" "tmux new-session -t rebld"
+          }
+        }
+    		pane command="hx" borderless=true size="80%" {
+          args "."
+        }
+    	}
     }
   '';
   home.file.".config/zellij/layouts/rebuild.kdl".text = ''

@@ -1,11 +1,16 @@
 {pkgs, ...}: { 
- virtualisation.libvirtd.enable = true;
+ virtualisation = {
+  libvirtd.enable = true;
+  docker.enable = true;
+  waydroid.enable = true;
+
+  };
  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
     users.users.mon = {
      createHome = true;
      isNormalUser = true;
      extraGroups =
-       [ "qemu-libvirtd" "libvirtd" 
+       [ "qemu-libvirtd" "libvirtd" "docker"
          "wheel" "video" "audio" "disk" "networkmanager" 
        ]; 
      group = "users";
@@ -14,6 +19,7 @@
    };
     environment.systemPackages = with pkgs; [
 
+    docker-compose
     vagrant
     spice
     spice-gtk

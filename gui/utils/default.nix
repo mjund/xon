@@ -4,7 +4,7 @@
 # systemd.user.services.espanso.Service.ExecStart =
 #     lib.mkForce "/home/sky/.config/espanso/espanso daemon"; # services.espanso.enable = true;
 
- programs.espanso.enable = true;   
+ # programs.espanso.enable = true;   
   services.espanso = {
     configs = {
       default = {
