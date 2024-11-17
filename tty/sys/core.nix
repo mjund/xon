@@ -109,6 +109,9 @@ environment.sessionVariables = {
   environment.systemPackages = with pkgs; [
 
 
+    wtype
+    python3
+
     ueberzug
     udisks
     gvfs

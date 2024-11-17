@@ -22,9 +22,9 @@ in {
     enable = true;
 
       search = rec {
-        defaultSearchEngine = "Searxng";
+        defaultSearchEngine = "google";
         removeEngines = ["Bing" "Amazon.com" "eBay" "Twitter" "Wikipedia" "LibRedirect" "DuckDuckGo"];
-        searxUrl = "https://search.notashelf.dev";
+        searxUrl = "https://google.com";
         searxQuery = "${searxUrl}/search?q={searchTerms}&categories=general";
         addEngines = [
           {

@@ -19,8 +19,6 @@ autocmd DocStart falstad.com mode ignore
 
 
 " keymaps
-keymap ; :
-keymap : ;
 keymap o t
 keymap t o
 
@@ -53,6 +51,7 @@ set searchurls.tw https://twitter.com/search?q=%s
 set searchurls.yt https://www.youtube.com/results?search_query=%s
 set searchurls.s https://sourcegraph.com/search?q=%s
 set searchurls.gh https://github.com/search?q=%s
+set searchurls.g https://google.com/search?q=%s
 set searchurls.np https://search.nixos.org/packages?query=%s
 set searchurls.no https://search.nixos.org/options?query=%s
 set searchurls.hm https://home-manager-options.extranix.com/?query=%s

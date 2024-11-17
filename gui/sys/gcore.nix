@@ -1,5 +1,11 @@
 { inputs, pkgs, ...}: 
 {
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [ libva vaapiVdpau ];
+      };
   programs.hyprland = {
   enable  = true;
   # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -18,6 +24,17 @@
 
 
   environment.systemPackages = with pkgs; [
+
+
+    pot
+    android-studio
+
+    zathura
+
+    kdePackages.okular
+    appimage-run
+    immersed-vr
+    libreoffice-qt
 
     pomodoro-gtk
     drawio
