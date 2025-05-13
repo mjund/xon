@@ -20,7 +20,7 @@ let funcs = ''
 '';
 in
 {
-  programs.zsh.initExtra = funcs;
+  programs.zsh.initContent = funcs;
   programs.bash.initExtra = funcs;
 
 }

@@ -1,11 +1,13 @@
 { inputs, pkgs, ...}: 
 {
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [ libva vaapiVdpau ];
       };
+
+      
   programs.hyprland = {
   enable  = true;
   # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -26,6 +28,7 @@
   environment.systemPackages = with pkgs; [
 
 
+    gromit-mpx 
     pot
     android-studio
 
@@ -33,16 +36,16 @@
 
     kdePackages.okular
     appimage-run
-    immersed-vr
+    immersed
     libreoffice-qt
 
     pomodoro-gtk
     drawio
-    betterbird
+    # betterbird
     todoist-electron
     sakura
     st
-    inputs.wezterm.packages.${pkgs.system}.default
+    # inputs.wezterm.packages.${pkgs.system}.default
     obsidian
     alacritty
     firefox
@@ -50,8 +53,8 @@
     xdg-utils
     # handlr
 
-    gnome.nautilus
-    gnome.sushi
+    nautilus
+    sushi
     # espanso-wayland
     
   ]; 

@@ -39,8 +39,8 @@ in {
 
 
     security = {
-      sanitizeOnShutdown = false;
-      sandbox = false;
+      # sanitizeOnShutdown = false;
+      # sandbox = false;
       # extraSandboxBinds = [
       #   "/home/${username}/.config/tridactyl"
       # ];
@@ -71,7 +71,7 @@ in {
         # "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}".install_url = "${exturl}/styl-us/latest.xpi";
         "{9a41dee2-b924-4161-a971-7fb35c053a4a}".install_url = "${exturl}/enhanced-h264ify/latest.xpi";
         "{446900e4-71c2-419f-a6a7-df9c091e268b}".install_url = "${exturl}/bitwarden-password-manager/latest.xpi";
-        # "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}".install_url = "${exturl}/refined-github-/latest.xpi";
+        "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}".install_url = "${exturl}/refined-github-/latest.xpi";
         "sponsorBlocker@ajay.app".install_url = "${exturl}/sponsorblock/latest.xpi";
         "{61a05c39-ad45-4086-946f-32adb0a40a9d}".install_url = "${exturl}/linkding-extension/latest.xpi";
         "{f209234a-76f0-4735-9920-eb62507a54cd}".install_url = "${exturl}/unpaywall/latest.xpi";
@@ -101,7 +101,7 @@ in {
       "nglayout.initialpaint.delay_in_oopif" = 0;
       "content.notify.interval" = 100000;
       "browser.startup.preXulSkeltonUI" = false;
-      "gfx.webrender.all" = true;
+      "gfx.webrender.all" = false;
       "gfx.webrender.precache-shaders" = true;
       "gfx.webrender.compositor" = true;
       "gfx.webrender.compositor.force-enabled" = true;

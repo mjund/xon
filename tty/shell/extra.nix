@@ -1,4 +1,4 @@
 { ... }: {
-  porgrams.zsh.initExtra = ''
+  porgrams.zsh.initContent = ''
   '';
 }

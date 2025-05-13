@@ -29,7 +29,8 @@
     qemu
     OVMF
     glib
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
+    # gnome.adwaita-icon-theme
     #virtio-win
     #win-spice
   ];

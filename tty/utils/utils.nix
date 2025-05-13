@@ -48,7 +48,7 @@
 
   eza = {
     enable = true;
-    icons = true;
+    # icons = true;
     # enableAliases = true;
   };
 

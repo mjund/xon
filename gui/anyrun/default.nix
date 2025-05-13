@@ -4,11 +4,11 @@
   ...
 }: {
 
-  imports = [
+  # imports = [
 
-    inputs.anyrun.homeManagerModules.anyrun
+  #   inputs.anyrun.homeManagerModules.anyrun
     
-  ];
+  # ];
 
 programs.anyrun = {
     enable = true;

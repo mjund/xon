@@ -30,7 +30,7 @@
     
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      follows = "hyprland-virtual-desktops/hyprland"; # To make sure we run the same version of hyprland that the plugin was built against
+      # follows = "hyprland-virtual-desktops/hyprland"; # To make sure we run the same version of hyprland that the plugin was built against
     };
 
     hyprland-virtual-desktops = {
@@ -72,10 +72,10 @@
     };
 
     # Firefox style
-      penguin-fox = {
-        url = "github:p3nguin-kun/penguinFox";
-        flake = false;
-      };
+      # penguin-fox = {
+      #   url = "github:p3nguin-kun/penguinFox";
+      #   flake = false;
+      # };
     # tmux 
 
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";

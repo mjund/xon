@@ -11,7 +11,7 @@ in
     ubuntu_font_family
     vazir-fonts
     monaspace
-    (nerdfonts.override {fonts = ["IosevkaTerm" "FiraCode" "DroidSansMono" ];})
+    # (nerdfonts.override {fonts = ["IosevkaTerm" "FiraCode" "DroidSansMono" ];})
     # (iosevka-bin.override {variant = "slab";})
     ];
 
