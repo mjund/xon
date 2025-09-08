@@ -5,6 +5,15 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     devenv.url = "github:cachix/devenv/latest";
 
@@ -15,14 +24,6 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    matugen = {
-    url = "github:/InioX/Matugen";
-    };
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     schizofox.url = "github:schizofox/schizofox";
 
@@ -66,10 +67,6 @@
 
     nur.url = "github:nix-community/NUR";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Firefox style
       # penguin-fox = {
