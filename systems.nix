@@ -61,7 +61,7 @@ in
       specialArgs = { inherit inputs; };
       modules = [
         ./huawei
-        ./tty
+        ./tty/core.nix
         ./gui
 
       ] ++ giuModule ++ tiuModule ++ xiuModule;

@@ -16,15 +16,12 @@
   
 services.greetd = {
   enable = true;
-  settings = rec {
-    initial_session = {
+  settings = {
+    default_session = {
       command = "${pkgs.hyprland}/bin/Hyprland";
       user = username;
     };
-    
-      
     autologin = false;
-    default_session = initial_session;
   };
 };
 
@@ -55,9 +52,14 @@ services.greetd = {
   };
 
   
- environment.variables = {
-  
-};
 
+environment.sessionVariables = {
+  GTK_THEME = "Adwaita-dark";
+  QT_QPA_PLATFORMTHEME = "qt5ct"; # GUI toolkit theme helper
+  GDK_BACKEND = "wayland"; # prefer wayland backend for GTK
+  MOZ_ENABLE_WAYLAND = "1"; # Firefox use Wayland
+  XDG_SESSION_TYPE = "wayland"; # hint for session scripts
+  XDG_CURRENT_DESKTOP = "GNOME";
+};
 
 }

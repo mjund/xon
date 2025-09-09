@@ -1,4 +1,4 @@
-{ inputs,  pkgs, ... }: 
+{ inputs,  hostname, username, pkgs, ... }: 
 
 {
 
@@ -17,118 +17,140 @@
     # };
   };
   };
-
-  services = {
-
-    upower.enable = true;
-    gvfs.enable = true;
-    devmon.enable = true;
-    udisks2.enable = true;
-    
+   
+  users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "networkmanager" "keyd" "input"];
   };
 
-
-  # Enable automounting
-
-  # Install necessary packages
-
-  # Configure auto-mount options
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", \
-      RUN{program}+="${pkgs.udisks}/bin/udisksctl mount -b /dev/%k --no-user-interaction"
-  ''; # hardware
-
-  hardware = {
-    # pulseaudio = {
-    #   enable = true;
-    #   package = pkgs.pulseaudioFull;
-    # };
-
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
+    systemd.services.keyd = {
+    description = "keyd daemon";
+    wantedBy = ["sysinit.target"];
+    requires = ["local-fs.target"];
+    after = ["local-fs.target"];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.keyd}/bin/keyd'';
     };
   };
 
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-  };
-
-
-  services.pipewire.wireplumber.extraConfig = {
-  "monitor.bluez.properties" = {
-      "bluez5.enable-sbc-xq" = true;
-      "bluez5.enable-msbc" = true;
-      "bluez5.enable-hw-volume" = true;
-      "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
-  };
-};
-
-
-  networking = { 
-    hostName = "hix";
-    wireless.enable = false;
-    networkmanager.enable = true;
-    };
   
    
-  users.users.mon.isNormalUser = true;
-  users.users.mon.extraGroups = ["wheel" "networkmanager" "keyd" "input"];
-  
 
- environment.variables = {
-  
-};
+  environment.etc = {
+    "keyd/default.conf" = {
+      text = ''
+      
+        [ids]
 
-environment.sessionVariables = {
-  
-};
+        *
+
+        [main]
+
+        esc = `
+        capslock = overload(nav, esc)
+
+
+
+        j = overloadt(meta, j, 500)
+        f = overloadt(meta, f, 500)
+        d = overloadt(control, d, 500)
+        k = overloadt(control, k, 500)
+        s = overloadt(alt, s, 500)
+        l = overloadt(alt, l, 500)
+        ; = overloadt(shift, ;, 500)
+        a = overloadt(shift, a, 500)
+        m = overloadt(meta, m, 500)
+
+
+
+
+
+
+
+        [nav:C]
+        j = down
+        k = up
+        h = left
+        l = right
+      '';
+    };
+
+    "keyd/secKeyboard.conf" = {
+      text = ''
+      
+        [ids]
+        2b89:6210
+
+        [main]
+
+        leftmeta = leftalt
+        leftalt = leftmeta
+
+
+
+        esc = `
+        capslock = overload(nav, esc)
+
+
+
+        j = overloadt(meta, j, 500)
+        f = overloadt(meta, f, 500)
+        d = overloadt(control, d, 500)
+        k = overloadt(control, k, 500)
+        s = overloadt(alt, s, 500)
+        l = overloadt(alt, l, 500)
+        ; = overloadt(shift, ;, 500)
+        a = overloadt(shift, a, 500)
+        m = overloadt(meta, m, 500)
+
+
+
+
+
+
+
+        [nav:C]
+        j = down
+        k = up
+        h = left
+        l = right
+      '';
+    };
+  };
+
+
+
 
   security = {
     sudo.enable = false;
     doas.enable = true;
     doas.wheelNeedsPassword = false;
     doas.extraRules = [{
-    users = ["mon"];
+    users = ["${username}"];
     keepEnv = true;  # Optional, retains environment variables while running commands
     noPass = true;
     }];
   };
 
+  
+ environment.variables = {
+  
+};
+
+
   console = {
-    
+    font = "Lat2-Terminus16";
   };
 
   environment.systemPackages = with pkgs; [
 
 
     wtype
-    python3
-
-    ueberzug
     udisks
-    gvfs
     usbutils
-    (import ../../pkgs/tmuxifier/default.nix { inherit pkgs lib stdenv fetchFromGitHub; })
-
-    # zellij
-    ydotool
-    unzip
-    git
-    nil
     keyd
-    wl-clipboard
     duf
-    fx
-    glow
-    tldr
     
   ]; 
 

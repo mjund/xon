@@ -1,45 +1,26 @@
-{ inputs, lib, pkgs,  ...}:
+{ inputs, username, lib, pkgs,  ...}:
 {
   programs.home-manager.enable = true;
-  home.username = "mon";
-  home.homeDirectory = lib.mkDefault "/home/mon";
+  home.username = username;
+  home.homeDirectory = lib.mkDefault "/home/${username}";
   home.stateVersion = "23.11";
-
-
-  home.packages = with pkgs; [
-  
-    # betterbird
-    # todoist-electron
-    # sakura
-    # # st
-    # # inputs.wezterm.packages.${pkgs.system}.default
-    # obsidian
-    # alacritty
-    # firefox
-    # webcord
-    # xdg-utils
-    # # handlr
-
-    # gnome.nautilus
-    # gnome.sushi
-  ];
 
   imports = 
     [
 
+      ../hyprland
       # ../esp
       # ../../hom/obsVlt.nix
-      ../flatpak
-      ../ags
-      ../hyprland
-      ../editors/vscode.nix
-      ../terminals/wezterm.nix
+      # ../flatpak
+      # ../ags
+      # ../editors/vscode.nix
+      # ../terminals/wezterm.nix
       # ../terminals/alacritty.nix
-      ../utils
+      # ../utils
       # ../browser/firefox.nix
       ../browser/schizofox
       ../browser/chrome.nix
-      ../rofi
+      # ../rofi
       ../anyrun
       # ../fonts.nix
     ];

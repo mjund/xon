@@ -7,8 +7,8 @@
 
   imports = 
     [
-      ../zellij
-      ../../hom/bin
+      # ../zellij
+      # ../../hom/bin
       # ../../hom/fns
       ../tmux/tmuxifier.nix
       ../tmux

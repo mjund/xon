@@ -87,6 +87,16 @@
 
 {
   home.packages = [
+    (import ../../pkgs/tmuxifier/default.nix { inherit pkgs lib stdenv fetchFromGitHub; })
+
+    fx
+    glow
+    tldr
+    # zellij
+    ydotool
+    unzip
+    git
+    nil
     reload
     setxon
     worksp
