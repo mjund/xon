@@ -95,12 +95,14 @@
           };
       };
 
+
       extraArgs = inputs;
       specialArgs = {
         inherit system;
         inherit (inputs) hycov penguin-fox;
         inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
         addons = pkgs.nur.repos.rycee.firefox-addons;
+      username = "mon";
       };
     in
       {

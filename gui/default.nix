@@ -1,4 +1,4 @@
-{ inputs, pkgs, ...}: 
+{ inputs, pkgs, username, ...}: 
 {
 
   hardware.graphics = {
@@ -13,51 +13,28 @@
   # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  
+services.greetd = {
+  enable = true;
+  settings = rec {
+    initial_session = {
+      command = "${pkgs.hyprland}/bin/Hyprland";
+      user = username;
+    };
+    
+      
+    autologin = false;
+    default_session = initial_session;
+  };
+};
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [ 
+      xdg-desktop-portal-gtk 
+      xdg-desktop-portal-hyprland
+      ];
     };
-
-  
- environment.variables = {
-  
-};
-
-
-  environment.systemPackages = with pkgs; [
-
-
-    gromit-mpx 
-    pot
-    android-studio
-
-    zathura
-
-    kdePackages.okular
-    appimage-run
-    immersed
-    libreoffice-qt
-
-    pomodoro-gtk
-    drawio
-    # betterbird
-    todoist-electron
-    sakura
-    st
-    # inputs.wezterm.packages.${pkgs.system}.default
-    obsidian
-    alacritty
-    firefox
-    webcord
-    xdg-utils
-    # handlr
-
-    nautilus
-    sushi
-    # espanso-wayland
-    
-  ]; 
 
   services = {
     printing.enable = true;
@@ -76,5 +53,11 @@
       package = pkgs.gnome.gvfs;
     };
   };
+
+  
+ environment.variables = {
+  
+};
+
 
 }

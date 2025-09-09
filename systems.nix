@@ -39,6 +39,54 @@ let
 in
   {
 
+    morphero = nixosSystem {
+      # systemName = "morphero";
+      inherit lib pkgs system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./huawei.nix
+        ./tty/srvcs
+        ./tty/sys/core.nix
+        ./gui/sys/gcore.nix
+        ./gui/srvcs/greetd.nix
+        ./fonts/fonts.nix
+        
+      ] ++ tiuModule ++ giuModule ++ xiuModule;
+    };
+
+    neos = nixosSystem {
+      # morphero = false;
+      # systemName = "gix";
+      inherit lib pkgs system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./huawei
+        ./tty
+        ./gui
+
+      ] ++ giuModule ++ tiuModule ++ xiuModule;
+      
+    };
+
+    gix = nixosSystem {
+      # morphero = false;
+      # systemName = "gix";
+      inherit lib pkgs system;
+      specialArgs = { inherit inputs; };
+      modules = [
+        inputs.disko.nixosModules.disko
+        # ./espanso
+        ./disks/macdisk.nix
+        ./fonts/fonts.nix
+        ./tty/sys/core.nix
+        ./gui/sys/gcore.nix
+        ./gui/srvcs/greetd.nix
+        ./tty/srvcs
+        ./tty/srvcs/vpns.nix
+        ./hardware.nix
+      ] ++ giuModule ++ tiuModule ++ miuModule;
+    };
+
 
     livx = nixosSystem {
       inherit lib pkgs system;
@@ -69,41 +117,6 @@ in
         ./fonts/fonts.nix
         
       ] ++ tiuModule ++ giuModule ++ xiuModule;
-    };
-
-    morphero = nixosSystem {
-      # systemName = "morphero";
-      inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./huawei.nix
-        ./tty/srvcs
-        ./tty/sys/core.nix
-        ./gui/sys/gcore.nix
-        ./gui/srvcs/greetd.nix
-        ./fonts/fonts.nix
-        
-      ] ++ tiuModule ++ giuModule ++ xiuModule;
-    };
-
-
-    gix = nixosSystem {
-      # morphero = false;
-      # systemName = "gix";
-      inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        inputs.disko.nixosModules.disko
-        # ./espanso
-        ./disks/macdisk.nix
-        ./fonts/fonts.nix
-        ./tty/sys/core.nix
-        ./gui/sys/gcore.nix
-        ./gui/srvcs/greetd.nix
-        ./tty/srvcs
-        ./tty/srvcs/vpns.nix
-        ./hardware.nix
-      ] ++ giuModule ++ tiuModule ++ miuModule;
     };
 
     tix = nixosSystem {
