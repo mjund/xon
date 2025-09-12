@@ -1,4 +1,4 @@
-{ inputs, system , pkgs,  ...}: 
+{ inputs, specialArgs, system , pkgs,  ...}: 
 
 with inputs;
 
@@ -6,34 +6,42 @@ let
 
   inherit (nixpkgs.lib) nixosSystem;
   inherit (pkgs) lib;
+    # Helper for user-based modules (tiu, xiu, miu, etc.)
+  mkUserModule = path: [
+    home-manager.nixosModules.home-manager
+    (import path {
+      inherit inputs system;
+      extraSpecialArgs = { inherit inputs; };
+    })
+  ];
 
   giuModule = [
     home-manager.nixosModules.home-manager
     (import ./giu-modl.nix {
-      inherit inputs system;
-      extraSpecialArgs = { inherit inputs; };
+      inherit inputs system specialArgs;
+      extraSpecialArgs = specialArgs // { inherit inputs; };
     })
   ];
 
   tiuModule = [
     home-manager.nixosModules.home-manager
     (import ./tiu-modl.nix {
-      inherit inputs system;
-      extraSpecialArgs = { inherit inputs; };
+      inherit inputs system specialArgs;
+      extraSpecialArgs = specialArgs // { inherit inputs; };
     })
   ];
   xiuModule = [
     home-manager.nixosModules.home-manager
     (import ./xiu-modl.nix {
-      inherit inputs system;
-      extraSpecialArgs = { inherit inputs; };
+      inherit inputs system specialArgs;
+      extraSpecialArgs = specialArgs // { inherit inputs; };
     })
   ];
   miuModule = [
     home-manager.nixosModules.home-manager
     (import ./miu-modl.nix {
-      inherit inputs system;
-      extraSpecialArgs = { inherit inputs; };
+      inherit inputs system specialArgs;
+      extraSpecialArgs = specialArgs // { inherit inputs; };
     })
   ];
 in
@@ -42,7 +50,7 @@ in
     morphero = nixosSystem {
       # systemName = "morphero";
       inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
+      specialArgs = specialArgs;
       modules = [
         ./huawei.nix
         ./tty/srvcs
@@ -58,13 +66,14 @@ in
       # morphero = false;
       # systemName = "gix";
       inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
+      specialArgs = specialArgs;
       modules = [
-        ./huawei
+        ./huawei.nix
         ./tty/core.nix
         ./gui
+        # ./hardwares.nix
 
-      ] ++ giuModule ++ tiuModule ++ xiuModule;
+      ] ++ giuModule ++ tiuModule ++ xiuModule ++ mkUserModule ./tiu-modl.nix;
       
     };
 
@@ -72,7 +81,7 @@ in
       # morphero = false;
       # systemName = "gix";
       inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
+      specialArgs = specialArgs;
       modules = [
         inputs.disko.nixosModules.disko
         # ./espanso
@@ -106,7 +115,7 @@ in
     livero = nixosSystem {
       # systemName = "morphero";
       inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
+      specialArgs = specialArgs;
       modules = [
         ./installer/live.nix
         # ./huawei.nix
@@ -130,7 +139,7 @@ in
 
     hix = nixosSystem {
       inherit lib pkgs system;
-      specialArgs = { inherit inputs; };
+      specialArgs = specialArgs;
       modules = 
         [
           

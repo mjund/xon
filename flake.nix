@@ -83,7 +83,6 @@
   outputs = inputs:
     let
       system = "x86_64-linux";
-
       pkgs = import inputs.nixpkgs  {
       inherit system;
       config = {
@@ -102,11 +101,15 @@
         inherit (inputs) hycov penguin-fox;
         inherit (inputs.rycee-nurpkgs.lib.${system}) buildFirefoxXpiAddon;
         addons = pkgs.nur.repos.rycee.firefox-addons;
-      username = "mon";
+        
+        username = "mon";
+        hostname = "hix";
+      };
+      extraSpecialArgs = {
       };
     in
       {
         nixosConfigurations = 
-          import  ./systems.nix { inherit inputs system pkgs extraArgs specialArgs; };
+          import  ./systems.nix { inherit inputs system pkgs extraArgs specialArgs extraSpecialArgs; };
       };
 }

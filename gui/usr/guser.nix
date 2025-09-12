@@ -16,9 +16,9 @@
       # ../editors/vscode.nix
       # ../terminals/wezterm.nix
       # ../terminals/alacritty.nix
-      # ../utils
+      ../utils
       # ../browser/firefox.nix
-      ../browser/schizofox
+      # ../browser/schizofox
       ../browser/chrome.nix
       # ../rofi
       ../anyrun

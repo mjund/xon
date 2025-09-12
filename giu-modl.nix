@@ -1,9 +1,22 @@
-{ extraSpecialArgs, ...}:
+{ specialArgs, username, lib, pkgs, ... }:
+
 {
   home-manager = {
-    inherit extraSpecialArgs;
+    inherit specialArgs;
     useGlobalPkgs = true;
 
-    users.mon = import ./gui/usr/guser.nix;
+    users.${username} = {
+      programs.home-manager.enable = true;
+
+      home = {
+        username = username;
+        homeDirectory = lib.mkDefault "/home/${username}";
+        stateVersion = "23.11";
+      };
+
+      imports = [
+        ../gui/usr/hyprland
+      ];
+    };
   };
 }

@@ -17,6 +17,12 @@
     # };
   };
   };
+
+  networking = { 
+    hostName = "hix";
+    wireless.enable = false;
+    networkmanager.enable = true;
+    };
    
   users.users.${username} = {
     isNormalUser = true;

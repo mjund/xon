@@ -8,10 +8,10 @@
       };
 
       
-  programs.hyprland = {
-  enable  = true;
+  # programs.hyprland = {
+  # enable  = true;
   # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
+  # };
 
   
 services.greetd = {
@@ -56,9 +56,9 @@ services.greetd = {
 environment.sessionVariables = {
   GTK_THEME = "Adwaita-dark";
   QT_QPA_PLATFORMTHEME = "qt5ct"; # GUI toolkit theme helper
-  GDK_BACKEND = "wayland"; # prefer wayland backend for GTK
+  # GDK_BACKEND = "wayland"; # prefer wayland backend for GTK
   MOZ_ENABLE_WAYLAND = "1"; # Firefox use Wayland
-  XDG_SESSION_TYPE = "wayland"; # hint for session scripts
+  # XDG_SESSION_TYPE = "wayland"; # hint for session scripts
   XDG_CURRENT_DESKTOP = "GNOME";
 };
 
