@@ -73,7 +73,7 @@ in
         ./gui
         # ./hardwares.nix
 
-      ] ++ giuModule ++ tiuModule ++ xiuModule ++ mkUserModule ./tiu-modl.nix;
+      ] ++ tiuModule ++ xiuModule;
       
     };
 
